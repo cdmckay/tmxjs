@@ -1,26 +1,37 @@
-define(["jquery"], function($) {
-    var TileSet = function(element, dir) {
-        this.element = element;
-        this.firstgid = +element.attr("firstgid");
+define(["jquery", "util"], function($, Util) {
+    var TileSet = function(firstGlobalId) {
+        this.firstGlobalId = firstGlobalId;
+    }
 
-        this.source = element.attr("source");
-        if (this.source) {
-            var that = this;
-            this.promise = $.get(dir + "/" + this.source, {}, "xml")
+    TileSet.fromXML = function(element, dir) {
+        var firstGlobalId = Util.toNumber(element.attr("firstgid"));
+        var tileSet = new TileSet(firstGlobalId);
+
+        var extract = function(e) {
+            tileSet.name = e.attr("name");
+            tileSet.tileWidth = Util.toNumber(e.attr("tilewidth"));
+            tileSet.tileHeight = Util.toNumber(e.attr("tileheight"));
+            tileSet.spacing = Util.toNumber(e.attr("spacing"));
+            tileSet.margin = Util.toNumber(e.attr("margin"));
+        };
+
+        tileSet.source = element.attr("source");
+        var promise = $.Deferred();
+        if (tileSet.source) {
+            $.get(dir + "/" + this.source, {}, "xml")
                 .done(function(data) {
                     var external = $(data).filter(":first");
-                    that.name = external.attr("name");
+                    extract(external);
+                    promise.resolve(tileSet);
                 });
         } else {
             // Load all attributes.
-            this.promise = $.Deferred().resolve();
-            this.name = element.attr("name");
+            extract(element);
+            promise.resolve(tileSet);
         }
-    }
 
-    TileSet.prototype.ready = function(callback) {
-        this.promise.done(callback);
-    }
+        return promise;
+    };
 
     return {
         TileSet: TileSet

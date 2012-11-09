@@ -10,8 +10,8 @@ require(["jquery", "tmx"], function($, TMXjs) {
 
     $.get("examples/desert_uncompressed.tmx", "xml")
         .done(function(data) {
-            var tileSet = new TMXjs.TileSet($(data).find("tileset:eq(1)"), dir);
-            tileSet.ready(function() {
+            var promise = TMXjs.TileSet.fromXML($(data).find("tileset:eq(1)"), dir);
+            promise.done(function(tileSet) {
                 alert("TileSet is: " + tileSet.name);
             });
         })
