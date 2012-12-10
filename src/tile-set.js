@@ -4,6 +4,7 @@ define(["jquery"], function ($) {
         this.name = null;
         this.tileInfo = {};
         this.tiles = [];
+        this.properties = {};
     };
 
     TileSet.prototype.addTile = function (tile) {

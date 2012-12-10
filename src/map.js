@@ -6,10 +6,10 @@ define(["jquery", "tile-set", "util"], function ($, TileSet, Util) {
             h: height
         };
         this.orientation = "orthogonal";
-        this.properties = {};
         this.tileInfo = { w: 0, h: 0 };
         this.layers = [];
         this.tileSets = [];
+        this.properties = {};
     };
 
     Map.prototype.addLayer = function (layer) {
@@ -17,12 +17,12 @@ define(["jquery", "tile-set", "util"], function ($, TileSet, Util) {
         this.layers.push(layer);
     };
 
-    Map.prototype.setLayerAt = function(index, layer) {
+    Map.prototype.setLayerAt = function (index, layer) {
         layer.tileMap = this;
         this.layers[index] = layer;
     };
 
-    Map.prototype.removeLayerAt = function(index) {
+    Map.prototype.removeLayerAt = function (index) {
         Util.remove(this.tileSets, index);
     };
 
@@ -52,7 +52,7 @@ define(["jquery", "tile-set", "util"], function ($, TileSet, Util) {
 
     Map.prototype.findTileSet = function (globalId) {
         var target = null;
-        $.each(this.tileSets, function(tileSet) {
+        $.each(this.tileSets, function (tileSet) {
             if (tileSet.firstGlobalId <= globalId) {
                 target = tileSet;
                 return false;
@@ -66,22 +66,34 @@ define(["jquery", "tile-set", "util"], function ($, TileSet, Util) {
         var root = $(xml).find("map");
         var map = new Map(parseInt(root.attr("width")), parseInt(root.attr("height")));
         map.version = parseInt(root.attr("version"));
-        map.tileInfo.w = parseInt(root.attr("tilewidth"));
-        map.tileInfo.h = parseInt(root.attr("tileheight"));
+        map.tileInfo.w = parseInt(root.attr("tilewidth")) || 0;
+        map.tileInfo.h = parseInt(root.attr("tileheight")) || 0;
+        map.orientation = root.attr("orientation") || "orthogonal";
 
+        // Load properties.
+        root.find("properties property").each(function () {
+            map.properties[$(this).attr("name")] = $(this).attr("value");
+        });
+
+        // Load tile sets.
         var tileSetPromises = [];
-        root.find("tileset").each(function() {
-            tileSetPromises.push(TileSet.fromElement(this, dir).done(function(tileSet) {
+        root.find("tileset").each(function () {
+            tileSetPromises.push(TileSet.fromElement(this, dir).done(function (tileSet) {
                 map.addTileSet(tileSet);
             }));
         });
 
+        // Load layers.
+
+
+        // Load object groups.
+
         var promise = $.Deferred();
         $.when.apply($, tileSetPromises)
-            .done(function() {
+            .done(function () {
                 promise.resolve(map);
             })
-            .fail(function() {
+            .fail(function () {
                 promise.reject();
             });
         return promise;
