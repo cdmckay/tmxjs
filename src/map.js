@@ -71,7 +71,7 @@ define(["jquery", "tile-set", "util"], function ($, TileSet, Util) {
         map.orientation = root.attr("orientation") || "orthogonal";
 
         // Load properties.
-        root.find("properties property").each(function () {
+        root.find("properties:first property").each(function () {
             map.properties[$(this).attr("name")] = $(this).attr("value");
         });
 
@@ -84,7 +84,9 @@ define(["jquery", "tile-set", "util"], function ($, TileSet, Util) {
         });
 
         // Load layers.
+        root.find("layer").each(function() {
 
+        });
 
         // Load object groups.
 

@@ -1,6 +1,6 @@
 define(["jquery", "layer"], function ($, Layer) {
-    var TileLayer = function(map, width, height) {
-        Layer.call(this, map, width, height);
+    var TileLayer = function(map) {
+        Layer.call(this, map);
 
         this.grid = [];
         this.tileProperties = {};
@@ -37,6 +37,24 @@ define(["jquery", "layer"], function ($, Layer) {
                 throw new Error("Unsupported mirror direction: " + direction);
         }
         // TODO Fill in the rest.
+    };
+
+    TileLayer.fromElement = function (element, map) {
+        var wrapped = $(element);
+        var tileLayer = new TileLayer(map);
+        tileLayer.name = wrapped.attr("name");
+        tileLayer.visible = !!wrapped.attr("visible");
+        tileLayer.opacity = parseFloat(wrapped.attr("opacity")) || 0.0;
+
+        wrapped.find("properties:first property").each(function () {
+            tileLayer.properties[$(this).attr("name")] = $(this).attr("value");
+        });
+
+        wrapped.find("data:first").each(function() {
+            // TODO Deal with layer data.
+        });
+
+        return tileLayer;
     };
 
     return TileLayer;

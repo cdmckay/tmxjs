@@ -5,8 +5,8 @@ define(["jquery"], function ($) {
         this.map = map;
         this.opacity = 1.0;
         this.bounds = {
-            w: width,
-            h: height
+            w: (map && map.bounds.w) || 0,
+            h: (map && map.bounds.h) || 0
         };
         this.properties = {};
     };
