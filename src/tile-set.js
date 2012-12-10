@@ -13,8 +13,9 @@ define(["jquery"], function ($) {
         return tile.id;
     };
 
-    TileSet.fromXML = function (element, dir) {
-        var firstGlobalId = parseInt(element.attr("firstgid"));
+    TileSet.fromElement = function (element, dir) {
+        var wrapped = $(element);
+        var firstGlobalId = parseInt(wrapped.attr("firstgid"));
         var tileSet = new TileSet(firstGlobalId);
 
         var extract = function (e) {
@@ -27,18 +28,18 @@ define(["jquery"], function ($) {
             };
         };
 
-        tileSet.source = element.attr("source");
+        tileSet.source = wrapped.attr("source");
         var promise = $.Deferred();
         if (tileSet.source) {
-            $.get(dir + "/" + this.source, {}, "xml")
+            $.get(dir + "/" + tileSet.source, {}, "xml")
                 .done(function (data) {
-                    var external = $(data).filter(":first");
+                    var external = $(data).find("tileset");
                     extract(external);
                     promise.resolve(tileSet);
                 });
         } else {
             // Load all attributes.
-            extract(element);
+            extract(wrapped);
             promise.resolve(tileSet);
         }
 

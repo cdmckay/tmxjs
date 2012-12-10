@@ -1,10 +1,13 @@
-define(["jquery", "util"], function ($, Util) {
+define(["jquery", "tile-set", "util"], function ($, TileSet, Util) {
     var Map = function (width, height) {
+        this.version = null;
         this.bounds = {
             w: width,
             h: height
         };
-        this.tileInfo = {};
+        this.orientation = "orthogonal";
+        this.properties = {};
+        this.tileInfo = { w: 0, h: 0 };
         this.layers = [];
         this.tileSets = [];
     };
@@ -45,6 +48,43 @@ define(["jquery", "util"], function ($, Util) {
         });
         var index = $.inArray(tileSet, this.tileSets);
         Util.remove(this.tileSets, index);
+    };
+
+    Map.prototype.findTileSet = function (globalId) {
+        var target = null;
+        $.each(this.tileSets, function(tileSet) {
+            if (tileSet.firstGlobalId <= globalId) {
+                target = tileSet;
+                return false;
+            }
+            return true;
+        });
+        return target;
+    };
+
+    Map.fromXML = function (xml, dir) {
+        var root = $(xml).find("map");
+        var map = new Map(parseInt(root.attr("width")), parseInt(root.attr("height")));
+        map.version = parseInt(root.attr("version"));
+        map.tileInfo.w = parseInt(root.attr("tilewidth"));
+        map.tileInfo.h = parseInt(root.attr("tileheight"));
+
+        var tileSetPromises = [];
+        root.find("tileset").each(function() {
+            tileSetPromises.push(TileSet.fromElement(this, dir).done(function(tileSet) {
+                map.addTileSet(tileSet);
+            }));
+        });
+
+        var promise = $.Deferred();
+        $.when.apply($, tileSetPromises)
+            .done(function() {
+                promise.resolve(map);
+            })
+            .fail(function() {
+                promise.reject();
+            });
+        return promise;
     };
 
     return Map;
