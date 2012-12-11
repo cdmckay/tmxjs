@@ -40,17 +40,17 @@ define(["jquery", "layer"], function ($, Layer) {
     };
 
     TileLayer.fromElement = function (element, map) {
-        var wrapped = $(element);
+        var layerElement = $(element);
         var tileLayer = new TileLayer(map);
-        tileLayer.name = wrapped.attr("name");
-        tileLayer.visible = !!wrapped.attr("visible");
-        tileLayer.opacity = parseFloat(wrapped.attr("opacity")) || 0.0;
+        tileLayer.name = layerElement.attr("name");
+        tileLayer.visible = !!layerElement.attr("visible");
+        tileLayer.opacity = parseFloat(layerElement.attr("opacity")) || 0.0;
 
-        wrapped.find("properties:first property").each(function () {
+        layerElement.find("properties:first property").each(function () {
             tileLayer.properties[$(this).attr("name")] = $(this).attr("value");
         });
 
-        wrapped.find("data:first").each(function() {
+        layerElement.find("data:first").each(function() {
             // TODO Deal with layer data.
         });
 
