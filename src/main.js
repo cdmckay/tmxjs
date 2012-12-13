@@ -12,6 +12,7 @@ require(["jquery", "tmx", "util"], function ($, TMXjs, Util) {
         .done(function (xml) {
             TMXjs.Map.fromXML(xml, dir).done(function(map) {
                 console.log(Util.format("Map has {0} tile set(s).", map.tileSets.length));
+                console.log(map);
                 $.each(map.tileSets, function() {
                     console.log(this);
                 });

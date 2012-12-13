@@ -2,7 +2,12 @@ define(["jquery", "layer"], function ($, Layer) {
     var TileLayer = function(map) {
         Layer.call(this, map);
 
-        this.grid = [];
+        var grid = new Array(map.bounds.h);
+        $.each(grid, function(i) {
+            grid[i] = new Array(map.bounds.w);
+        });
+        this.grid = grid;
+
         this.tileProperties = {};
     };
     TileLayer.prototype = Layer;
@@ -39,6 +44,26 @@ define(["jquery", "layer"], function ($, Layer) {
         // TODO Fill in the rest.
     };
 
+    TileLayer.prototype.removeTile = function (tile) {
+        for (var j = 0; j < this.bounds.h; j++) {
+            for (var i = 0; i < this.bounds.w; i++) {
+                if (this.grid[j][i] === tile) {
+                    this.setTileAt(i + this.bounds.x, j + this.bounds.y, null);
+                }
+            } // end for
+        } // end for
+    };
+
+    TileLayer.prototype.setTileAt = function (tx, ty, tile) {
+        if (this.bounds.contains(tx, ty)) {
+            this.grid[ty - this.bounds.y][tx - this.bounds.x] = tile;
+        }
+    };
+
+    TileLayer.prototype.getTileAt = function (tx, ty) {
+        return this.bounds.contains(tx, ty) ? this.grid[ty - this.bounds.y][tx - this.bounds.x] : null;
+    };
+
     TileLayer.fromElement = function (element, map) {
         var layerElement = $(element);
         var tileLayer = new TileLayer(map);
@@ -50,8 +75,19 @@ define(["jquery", "layer"], function ($, Layer) {
             tileLayer.properties[$(this).attr("name")] = $(this).attr("value");
         });
 
-        layerElement.find("data:first").each(function() {
-            // TODO Deal with layer data.
+        layerElement.find("data:first").each(function () {
+            var encoding = $(this).attr("encoding");
+            if (encoding) {
+                throw new Error("Encoded maps not supported");
+            }
+
+            $(this).children("tile").each(function (i) {
+                var x = i % tileLayer.bounds.w;
+                var y = Math.floor(i / tileLayer.bounds.w);
+                var globalId = parseInt($(this).attr("gid")) || null;
+                var tileSet = map.findTileSet(globalId);
+                tileLayer.setTileAt(x, y, tileSet ? tileSet.getTileAt(globalId - tileSet.firstGlobalId) : null);
+            });
         });
 
         return tileLayer;

@@ -1,10 +1,7 @@
-define(["jquery", "tile-set", "util"], function ($, TileSet, Util) {
+define(["jquery", "tile-set", "tile-layer", "rectangle", "util"], function ($, TileSet, TileLayer, Rectangle, Util) {
     var Map = function (width, height) {
         this.version = null;
-        this.bounds = {
-            w: width,
-            h: height
-        };
+        this.bounds = Rectangle.atOrigin(width, height);
         this.orientation = "orthogonal";
         this.tileInfo = { w: 0, h: 0 };
         this.layers = [];
@@ -13,12 +10,12 @@ define(["jquery", "tile-set", "util"], function ($, TileSet, Util) {
     };
 
     Map.prototype.addLayer = function (layer) {
-        layer.tileMap = this;
+        layer.map = this;
         this.layers.push(layer);
     };
 
     Map.prototype.setLayerAt = function (index, layer) {
-        layer.tileMap = this;
+        layer.map = this;
         this.layers[index] = layer;
     };
 
@@ -52,9 +49,9 @@ define(["jquery", "tile-set", "util"], function ($, TileSet, Util) {
 
     Map.prototype.findTileSet = function (globalId) {
         var target = null;
-        $.each(this.tileSets, function (tileSet) {
-            if (tileSet.firstGlobalId <= globalId) {
-                target = tileSet;
+        $.each(this.tileSets, function () {
+            if (this.firstGlobalId <= globalId) {
+                target = this;
                 return false;
             }
             return true;
@@ -83,16 +80,17 @@ define(["jquery", "tile-set", "util"], function ($, TileSet, Util) {
             }));
         });
 
-        // Load layers.
-        root.find("layer").each(function() {
-
-        });
-
-        // Load object groups.
-
         var promise = $.Deferred();
         $.when.apply($, tileSetPromises)
             .done(function () {
+                // Load layers.
+                root.find("layer").each(function() {
+                    map.addLayer(TileLayer.fromElement(this, map));
+                });
+
+                // Load object groups.
+                // TODO Finish this.
+
                 promise.resolve(map);
             })
             .fail(function () {
