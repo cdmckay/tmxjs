@@ -89,7 +89,7 @@ define(["jquery", "tile"], function ($, Tile) {
         tileSet.source = tileSetElement.attr("source");
         var promise = $.Deferred();
         if (tileSet.source) {
-            $.get(dir + "/" + tileSet.source, {}, "xml")
+            $.get(dir + "/" + tileSet.source, {}, null, "xml")
                 .done(function (data) {
                     var external = $(data).find("tileset");
                     extract(external);
