@@ -60,8 +60,8 @@ define(["jquery", "tile"], function ($, Tile) {
                     for (var i = tileInfo.margin; i < imageInfo.w; i += tileInfo.w + tileInfo.spacing) {
                         var tile = new Tile();
                         tile.imageInfo = imageInfo;
-                        tile.position.x = i;
-                        tile.position.y = j;
+                        tile.bounds.x = i;
+                        tile.bounds.y = j;
                         tile.bounds.w = tileInfo.w;
                         tile.bounds.h = tileInfo.h;
                         tileSet.addTile(tile);
