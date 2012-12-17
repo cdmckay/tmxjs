@@ -1,4 +1,6 @@
-define(["jquery", "tile-set", "tile-layer", "rectangle", "util"], function ($, TileSet, TileLayer, Rectangle, Util) {
+define(["jquery", "tile-set", "tile-layer", "util/rectangle", "util/array-util"], function (
+    $, TileSet, TileLayer, Rectangle, ArrayUtil
+) {
     var Map = function (width, height) {
         this.version = null;
         this.bounds = Rectangle.atOrigin(width, height);
@@ -20,7 +22,7 @@ define(["jquery", "tile-set", "tile-layer", "rectangle", "util"], function ($, T
     };
 
     Map.prototype.removeLayerAt = function (index) {
-        Util.remove(this.tileSets, index);
+        ArrayUtil.remove(this.tileSets, index);
     };
 
     Map.prototype.addTileSet = function (tileSet) {
@@ -44,7 +46,7 @@ define(["jquery", "tile-set", "tile-layer", "rectangle", "util"], function ($, T
             });
         });
         var index = $.inArray(tileSet, this.tileSets);
-        Util.remove(this.tileSets, index);
+        ArrayUtil.remove(this.tileSets, index);
     };
 
     Map.prototype.findTileSet = function (globalId) {

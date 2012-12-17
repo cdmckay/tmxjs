@@ -4,40 +4,74 @@ require.config({
     }
 });
 
-require(["jquery", "tmx", "util"], function ($, TMXjs, Util) {
+require(["jquery", "tmx", "util/string-util"], function ($, TMXjs, StringUtil) {
     var url = "examples/desert_uncompressed.tmx";
     var dir = url.split("/").slice(0, -1) || ".";
 
     $.get("examples/desert_uncompressed.tmx", {}, null, "xml")
         .done(function (xml) {
             TMXjs.Map.fromXML(xml, dir).done(function (map) {
-                console.log(Util.format("Map has {0} tile set(s).", map.tileSets.length));
                 console.log(map);
                 $.each(map.tileSets, function () {
                     console.log(this);
                 });
+                // TODO Move to separate file.
                 var canvas = $("#map").css({
                     width: map.bounds.w * map.tileInfo.w,
                     height: map.bounds.h * map.tileInfo.h
                 });
+                var ruleSets = {};
                 $.each(map.layers, function (ln, layer) {
                     $.each(this.tiles, function (tn, tile) {
-                        // TODO Generate CSS classes instead.
                         var i = tn % layer.bounds.w;
                         var j = Math.floor(tn / layer.bounds.w);
-                        $("<div>")
-                            .css({
-                                position: "absolute",
-                                left: i * tile.bounds.w,
-                                top: j * tile.bounds.h,
-                                width: tile.bounds.w,
-                                height: tile.bounds.h,
-                                background: Util.format("url({0}) repeat {1}px {2}px",
-                                    tile.imageInfo.url, -tile.bounds.x, -tile.bounds.y)
-                            })
-                            .appendTo(canvas);
+                        var tileSet = map.findTileSet(tile.getGlobalId());
+
+                        var format, ruleSet;
+                        if (!ruleSets["tile-set-"] + tileSet.firstGlobalId) {
+                            format = [
+                                "background-image: url({0});"
+                            ].join("/");
+                            ruleSet = StringUtil.format(format, tile.imageInfo.url);
+                            ruleSets["tile-set-" + tileSet.firstGlobalId] = ruleSet;
+                        }
+                        if (!ruleSets["tile-" + tile.getGlobalId()]) {
+                            format = [
+                                "width: {0}px;",
+                                "height: {1}px;",
+                                "background-repeat: no-repeat;",
+                                "background-position: {2}px {3}px;"
+                            ].join(" ");
+                            ruleSet = StringUtil.format(format,
+                                tile.bounds.w,
+                                tile.bounds.h,
+                                -tile.bounds.x,
+                                -tile.bounds.y
+                            );
+                            ruleSets["tile-" + tile.getGlobalId()] = ruleSet;
+                        }
+
+                        var classes = StringUtil.format('tile-set tile-set-{0} tile tile-{1}',
+                            tileSet.firstGlobalId,
+                            tile.getGlobalId()
+                        );
+                        $("<div>", {
+                            'class': classes,
+                            'style': StringUtil.format("left: {0}px; top: {1}px;",
+                                i * tile.bounds.w,
+                                j * tile.bounds.h
+                            )
+                        }).appendTo(canvas);
                     });
                 });
+                // Create the CSS classes.
+                var styleSheet = [ ".tile { position: absolute; }" ];
+                $.each(ruleSets, function (key, value) {
+                    styleSheet.push(StringUtil.format(".{0} { {1} }", key, value));
+                });
+                var style = $("<style>", { type: 'text/css' })
+                    .html(styleSheet.join("\n"))
+                    .appendTo($("head"));
             });
         })
         .fail(function () {
