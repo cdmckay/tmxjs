@@ -1,6 +1,7 @@
 require.config({
     paths: {
-        jquery: "../lib/jquery"
+        jquery: "../lib/jquery",
+        tmxjs: "../src"
     },
     shim: {
         nodeunit: {
@@ -9,6 +10,17 @@ require.config({
     }
 });
 
-require(["nodeunit"], function (nodeunit) {
-
+require([
+    "nodeunit",
+    "util/rectangle",
+    "map"
+], function (
+    nodeunit,
+    rectangle,
+    map
+) {
+    nodeunit.run({
+        rectangle: rectangle,
+        map: map
+    });
 });

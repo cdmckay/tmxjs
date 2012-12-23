@@ -9,6 +9,9 @@ define(["jquery"], function ($) {
     Rectangle.prototype.contains = function (x, y) {
         var w = this.w + this.x;
         var h = this.h + this.y;
+        if (x < this.x || y < this.y) {
+            return false;
+        }
         return (w < this.x || w > x) && (h < this.y || h > y);
     };
 
