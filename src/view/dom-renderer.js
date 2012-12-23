@@ -1,3 +1,0 @@
-define(["tmx"], function(TMXjs) {
-
-});

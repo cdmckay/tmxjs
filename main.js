@@ -1,16 +1,17 @@
 require.config({
     paths: {
-        "jquery": "../lib/jquery"
+        jquery: "lib/jquery",
+        tmxjs: "src"
     }
 });
 
-require(["jquery", "tmx", "util/string-util"], function ($, TMXjs, StringUtil) {
+require(["jquery", "tmxjs/map", "tmxjs/util/string-util"], function ($, Map, StringUtil) {
     var url = "examples/desert_uncompressed.tmx";
     var dir = url.split("/").slice(0, -1) || ".";
 
     $.get("examples/desert_uncompressed.tmx", {}, null, "xml")
         .done(function (xml) {
-            TMXjs.Map.fromXML(xml, dir).done(function (map) {
+            Map.fromXML(xml, dir).done(function (map) {
                 console.log(map);
                 $.each(map.tileSets, function () {
                     console.log(this);

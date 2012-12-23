@@ -1,4 +1,4 @@
-define(["jquery", "util/rectangle"], function ($, Rectangle) {
+define(["jquery", "./util/rectangle"], function ($, Rectangle) {
     var Tile = function () {
         this.id = null;
         this.tileSet = null;

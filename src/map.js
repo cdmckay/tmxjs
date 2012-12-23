@@ -1,4 +1,4 @@
-define(["jquery", "tile-set", "tile-layer", "util/rectangle", "util/array-util"], function (
+define(["jquery", "./tile-set", "./tile-layer", "./util/rectangle", "./util/array-util"], function (
     $, TileSet, TileLayer, Rectangle, ArrayUtil
 ) {
     var Map = function (width, height) {
@@ -9,6 +9,13 @@ define(["jquery", "tile-set", "tile-layer", "util/rectangle", "util/array-util"]
         this.layers = [];
         this.tileSets = [];
         this.properties = {};
+    };
+
+    Map.prototype.fitBoundsToLayers = function() {
+        var w = 0;
+        var h = 0;
+
+        // ...
     };
 
     Map.prototype.addLayer = function (layer) {
@@ -23,6 +30,10 @@ define(["jquery", "tile-set", "tile-layer", "util/rectangle", "util/array-util"]
 
     Map.prototype.removeLayerAt = function (index) {
         ArrayUtil.remove(this.tileSets, index);
+    };
+
+    Map.prototype.removeAllLayers = function () {
+        this.layers.length = 0;
     };
 
     Map.prototype.addTileSet = function (tileSet) {
@@ -40,8 +51,8 @@ define(["jquery", "tile-set", "tile-layer", "util/rectangle", "util/array-util"]
             return;
         }
 
-        $.each(tileSet.tiles, function (tile) {
-            $.each(this.layers, function (layer) {
+        $.each(tileSet.tiles, function (tn, tile) {
+            $.each(this.layers, function (ln, layer) {
                 layer.removeTile(tile);
             });
         });
@@ -59,6 +70,10 @@ define(["jquery", "tile-set", "tile-layer", "util/rectangle", "util/array-util"]
             return true;
         });
         return target;
+    };
+
+    Map.prototype.swapTileSets = function(indexA, indexB) {
+
     };
 
     Map.fromXML = function (xml, dir) {

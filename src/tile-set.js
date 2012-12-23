@@ -1,4 +1,4 @@
-define(["jquery", "tile"], function ($, Tile) {
+define(["jquery", "./tile"], function ($, Tile) {
     var TileSet = function (firstGlobalId) {
         this.firstGlobalId = firstGlobalId || 1;
         this.dir = null;

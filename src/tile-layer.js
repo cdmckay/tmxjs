@@ -1,4 +1,4 @@
-define(["jquery", "layer"], function ($, Layer) {
+define(["jquery", "./layer"], function ($, Layer) {
     var TileLayer = function(map) {
         Layer.call(this, map);
         this.tiles = new Array(this.bounds.w * this.bounds.h);

@@ -1,4 +1,4 @@
-define(["jquery", "util/rectangle"], function ($, Rectangle) {
+define(["jquery", "./util/rectangle"], function ($, Rectangle) {
     var Layer = function (map, width, height) {
         this.name = null;
         this.visible = true;

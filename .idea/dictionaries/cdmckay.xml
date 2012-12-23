@@ -2,8 +2,10 @@
   <dictionary name="cdmckay">
     <words>
       <w>firstgid</w>
+      <w>nodeunit</w>
       <w>tileheight</w>
       <w>tilewidth</w>
+      <w>tmxjs</w>
     </words>
   </dictionary>
 </component>
