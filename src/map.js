@@ -37,7 +37,7 @@ define(["jquery", "./tile-set", "./tile-layer", "./util/rectangle", "./util/arra
     };
 
     Map.prototype.addTileSet = function (tileSet) {
-        if (tileSet === null) throw new Error("tileSet cannot be null");
+        if (tileSet === null) throw new Error("TileSet cannot be null");
         if ($.inArray(tileSet, this.tileSets) > -1) {
             return;
         }
@@ -46,7 +46,7 @@ define(["jquery", "./tile-set", "./tile-layer", "./util/rectangle", "./util/arra
     };
 
     Map.prototype.removeTileSet = function (tileSet) {
-        if (tileSet === null) throw new Error("tileSet cannot be null");
+        if (tileSet === null) throw new Error("TileSet cannot be null");
         if ($.inArray(tileSet, this.tileSets) > -1) {
             return;
         }

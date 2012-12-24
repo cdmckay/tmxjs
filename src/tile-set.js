@@ -10,20 +10,21 @@ define(["jquery", "./tile"], function ($, Tile) {
     };
 
     TileSet.prototype.addTile = function (tile) {
-        if (tile.id == null) {
-            tile.id = this.tiles.length;
+        if (tile.id !== null) {
+            throw Error("Tile cannot have an id");
         }
+        tile.id = this.tiles.length;
         tile.tileSet = this;
         this.tiles.push(tile);
         return tile.id;
     };
 
-    TileSet.prototype.removeTileAt = function(id) {
-        this.tiles[id] = null;
-    };
-
     TileSet.prototype.getTileAt = function(id) {
         return this.tiles[id];
+    };
+
+    TileSet.prototype.removeTileAt = function(id) {
+        this.tiles[id] = null;
     };
 
     TileSet.prototype.getMaxTileId = function() {
