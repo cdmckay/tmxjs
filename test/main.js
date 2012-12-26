@@ -12,21 +12,24 @@ require.config({
 
 require([
     "nodeunit",
-    "util/rectangle",
+    "map",
     "tile",
+    "tile-layer",
     "tile-set",
-    "map"
+    "util/rectangle"
 ], function (
     nodeunit,
-    rectangle,
+    map,
     tile,
+    tileLayer,
     tileSet,
-    map
+    rectangle
 ) {
     nodeunit.run({
-        rectangle: rectangle,
+        map: map,
         tile: tile,
+        tileLayer: tileLayer,
         tileSet: tileSet,
-        map: map
+        rectangle: rectangle
     });
 });

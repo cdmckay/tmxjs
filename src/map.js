@@ -1,5 +1,15 @@
-define(["jquery", "./tile-set", "./tile-layer", "./util/rectangle", "./util/array-util"], function (
-    $, TileSet, TileLayer, Rectangle, ArrayUtil
+define([
+    "jquery",
+    "./tile-layer",
+    "./tile-set",
+    "./util/array-util",
+    "./util/rectangle"
+], function (
+    $,
+    TileLayer,
+    TileSet,
+    ArrayUtil,
+    Rectangle
 ) {
     var Map = function (width, height) {
         this.version = null;
