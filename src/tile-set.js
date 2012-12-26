@@ -31,11 +31,11 @@ define(["jquery", "./tile"], function ($, Tile) {
         return this.tiles.length - 1;
     };
 
-    TileSet.fromElement = function (element, dir, map) {
+    TileSet.fromElement = function (element, map, options) {
         var tileSetElement = $(element);
         var firstGlobalId = parseInt(tileSetElement.attr("firstgid"));
         var tileSet = new TileSet(firstGlobalId);
-        tileSet.dir = dir;
+        tileSet.dir = options.dir;
 
         var extract = function (e) {
             tileSet.name = e.attr("name");
@@ -51,7 +51,7 @@ define(["jquery", "./tile"], function ($, Tile) {
             var image = e.children("image:first");
             if (image.attr("source")) {
                 var imageInfo = {
-                    url: dir + "/" + image.attr("source"),
+                    url: options.dir + "/" + image.attr("source"),
                     w: parseInt(image.attr("width")) || 0,
                     h: parseInt(image.attr("height")) || 0
                 };
@@ -71,7 +71,7 @@ define(["jquery", "./tile"], function ($, Tile) {
             }
 
             e.children("tiles").each(function () {
-                var tile = Tile.fromElement(this);
+                var tile = Tile.fromElement(this, options);
                 if (tile.id > tileSet.getMaxTileId()) {
                     tileSet.addTile(tile);
                 } else {
@@ -84,7 +84,7 @@ define(["jquery", "./tile"], function ($, Tile) {
         tileSet.source = tileSetElement.attr("source");
         var promise = $.Deferred();
         if (tileSet.source) {
-            $.get(dir + "/" + tileSet.source, {}, null, "xml")
+            $.get(options.dir + "/" + tileSet.source, {}, null, "xml")
                 .done(function (data) {
                     var external = $(data).find("tileset");
                     extract(external);

@@ -11,7 +11,7 @@ define(["jquery", "./util/rectangle"], function ($, Rectangle) {
         return this.tileSet.firstGlobalId + this.id;
     };
 
-    Tile.fromElement = function (element) {
+    Tile.fromElement = function (element, options) {
         var tileElement = $(element);
         var tile = new Tile();
         tile.id = tileElement.attr("id") || null;

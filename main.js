@@ -7,11 +7,23 @@ require.config({
 
 require(["jquery", "tmxjs/map", "tmxjs/util/string-util"], function ($, Map, StringUtil) {
     var url = "examples/desert_uncompressed.tmx";
-    var dir = url.split("/").slice(0, -1) || ".";
+    var options = {
+        dir: url.split("/").slice(0, -1) || ".",
+        encoding: {
+            base64: {
+                encode: function () {},
+                decode: function () {}
+            },
+            csv: {
+                encode: function () {},
+                decode: function () {}
+            }
+        }
+    };
 
     $.get("examples/desert_uncompressed.tmx", {}, null, "xml")
         .done(function (xml) {
-            Map.fromXML(xml, dir).done(function (map) {
+            Map.fromXML(xml, options).done(function (map) {
                 console.log(map);
                 $.each(map.tileSets, function () {
                     console.log(this);

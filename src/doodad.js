@@ -9,7 +9,7 @@ define(["jquery", "./util/rectangle"], function ($, Rectangle) {
         this.properties = {};
     };
 
-    Doodad.fromElement = function (element) {
+    Doodad.fromElement = function (element, options) {
 
     };
 

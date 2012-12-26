@@ -85,7 +85,7 @@ define(["jquery", "./layer", "./util/rectangle"], function ($, Layer, Rectangle)
         } // end for
     };
 
-    TileLayer.fromElement = function (element, map) {
+    TileLayer.fromElement = function (element, map, options) {
         var layerElement = $(element);
         var tileLayer = new TileLayer(map);
         tileLayer.name = layerElement.attr("name");

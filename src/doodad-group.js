@@ -28,7 +28,7 @@ define(["jquery", "./layer", "./util/array-util", "./util/rectangle"], function 
 
     };
 
-    DoodadGroup.fromElement = function (element) {
+    DoodadGroup.fromElement = function (element, options) {
 
     };
 

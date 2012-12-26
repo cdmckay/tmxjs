@@ -25,7 +25,7 @@ define([
         var w = 0;
         var h = 0;
 
-        // ...
+        // TODO Finish this.
     };
 
     Map.prototype.addLayer = function (layer) {
@@ -86,7 +86,19 @@ define([
 
     };
 
-    Map.fromXML = function (xml, dir) {
+    Map.fromXML = function (xml, options) {
+        options = $.extend(true, {
+            dir: ".",
+            encoding: {
+                base64: null,
+                csv: null
+            },
+            compression: {
+                gzip: null,
+                zlib: null
+            }
+        }, options);
+
         var root = $(xml).find("map");
         var map = new Map(parseInt(root.attr("width")), parseInt(root.attr("height")));
         map.version = parseInt(root.attr("version"));
@@ -102,7 +114,7 @@ define([
         // Load tile sets.
         var tileSetPromises = [];
         root.find("tileset").each(function () {
-            tileSetPromises.push(TileSet.fromElement(this, dir).done(function (tileSet) {
+            tileSetPromises.push(TileSet.fromElement(this, map, options).done(function (tileSet) {
                 map.addTileSet(tileSet);
             }));
         });
@@ -110,12 +122,12 @@ define([
         var promise = $.Deferred();
         $.when.apply($, tileSetPromises)
             .done(function () {
-                // Load layers.
+                // Load tile layers.
                 root.find("layer").each(function() {
-                    map.addLayer(TileLayer.fromElement(this, map));
+                    map.addLayer(TileLayer.fromElement(this, map, options));
                 });
 
-                // Load object groups.
+                // Load doodad groups.
                 // TODO Finish this.
 
                 promise.resolve(map);

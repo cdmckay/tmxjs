@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87eb45c0-45ee-4e46-9bfe-541da756bff4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/doodad-group.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.js" afterPath="$PROJECT_DIR$/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/doodad-group.js" afterPath="$PROJECT_DIR$/src/doodad-group.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/doodad.js" afterPath="$PROJECT_DIR$/src/doodad.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/map.js" afterPath="$PROJECT_DIR$/src/map.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tile-layer.js" afterPath="$PROJECT_DIR$/src/tile-layer.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tile-set.js" afterPath="$PROJECT_DIR$/src/tile-set.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tile.js" afterPath="$PROJECT_DIR$/src/tile.js" />
     </list>
@@ -29,7 +32,7 @@
       <file leaf-file-name="tile-layer.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/tile-layer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="16" selection-start="584" selection-end="584" vertical-scroll-proportion="0.0">
+            <state line="88" column="38" selection-start="3179" selection-end="3179" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -38,7 +41,7 @@
       <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="57" selection-start="898" selection-end="898" vertical-scroll-proportion="0.0">
+            <state line="13" column="38" selection-start="382" selection-end="382" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -47,25 +50,25 @@
       <file leaf-file-name="doodad.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/doodad.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="6" selection-start="383" selection-end="383" vertical-scroll-proportion="0.0">
+            <state line="11" column="51" selection-start="381" selection-end="381" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="doodad-group.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="doodad-group.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/doodad-group.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="4" selection-start="951" selection-end="951" vertical-scroll-proportion="0.0">
+            <state line="11" column="20" selection-start="399" selection-end="399" vertical-scroll-proportion="0.28645834">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="34" selection-start="357" selection-end="357" vertical-scroll-proportion="0.5833333">
+            <state line="24" column="34" selection-start="357" selection-end="357" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -74,16 +77,7 @@
       <file leaf-file-name="map.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/map.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="45" selection-start="122" selection-end="122" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="rectangle.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/util/rectangle.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="16" selection-start="532" selection-end="532" vertical-scroll-proportion="0.0">
+            <state line="126" column="49" selection-start="3601" selection-end="3601" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -101,7 +95,7 @@
       <file leaf-file-name="tile-set.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/tile-set.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="73" column="50" selection-start="2661" selection-end="2661" vertical-scroll-proportion="0.0">
+            <state line="33" column="23" selection-start="932" selection-end="943" vertical-scroll-proportion="-7.32">
               <folding />
             </state>
           </provider>
@@ -110,7 +104,16 @@
       <file leaf-file-name="tile.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/tile.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="20" selection-start="726" selection-end="726" vertical-scroll-proportion="0.0">
+            <state line="8" column="47" selection-start="274" selection-end="274" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="layer.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/layer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="27" selection-start="391" selection-end="391" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -133,18 +136,18 @@
         <option value="$PROJECT_DIR$/src/main.js" />
         <option value="$PROJECT_DIR$/test/tile-set.js" />
         <option value="$PROJECT_DIR$/test/tile.js" />
-        <option value="$PROJECT_DIR$/src/map.js" />
         <option value="$PROJECT_DIR$/src/layer.js" />
-        <option value="$PROJECT_DIR$/src/tile-layer.js" />
-        <option value="$PROJECT_DIR$/main.js" />
         <option value="$PROJECT_DIR$/test/tile-layer.js" />
         <option value="$PROJECT_DIR$/src/thing.js" />
         <option value="$PROJECT_DIR$/src/util/rectangle.js" />
-        <option value="$PROJECT_DIR$/src/tile.js" />
+        <option value="$PROJECT_DIR$/test/main.js" />
+        <option value="$PROJECT_DIR$/main.js" />
+        <option value="$PROJECT_DIR$/src/map.js" />
+        <option value="$PROJECT_DIR$/src/tile-layer.js" />
         <option value="$PROJECT_DIR$/src/tile-set.js" />
+        <option value="$PROJECT_DIR$/src/tile.js" />
         <option value="$PROJECT_DIR$/src/doodad.js" />
         <option value="$PROJECT_DIR$/src/doodad-group.js" />
-        <option value="$PROJECT_DIR$/test/main.js" />
       </list>
     </option>
   </component>
@@ -395,7 +398,11 @@
       <created>1356556912445</created>
       <updated>1356556912445</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Added initial Doodad code.&#10;Moved Tile XML deserialization to that class to be consistent with the rest of the classes.">
+      <created>1356558644874</created>
+      <updated>1356558644874</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -477,7 +484,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Doodad class (Object in TMX lingo)." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added initial Doodad code.&#10;Moved Tile XML deserialization to that class to be consistent with the rest of the classes." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -508,6 +515,7 @@
     <MESSAGE value="Added more TileSet tests.&#10;Changed behaviour of TileSet addTile method: will now throw error if you try to add a tile with the id already set." />
     <MESSAGE value="Added tile layer tests." />
     <MESSAGE value="Added Doodad class (Object in TMX lingo)." />
+    <MESSAGE value="Added initial Doodad code.&#10;Moved Tile XML deserialization to that class to be consistent with the rest of the classes." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -536,13 +544,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/layer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="27" selection-start="391" selection-end="391" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/util/string-util.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -564,27 +565,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="57" selection-start="898" selection-end="898" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tile-layer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="16" selection-start="584" selection-end="584" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/map.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="45" selection-start="122" selection-end="122" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/util/array-util.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -592,37 +572,65 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="34" selection-start="357" selection-end="357" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="38" selection-start="382" selection-end="382" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/map.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="126" column="49" selection-start="3601" selection-end="3601" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/tile-set.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="50" selection-start="2661" selection-end="2661" vertical-scroll-proportion="0.0">
+        <state line="33" column="23" selection-start="932" selection-end="943" vertical-scroll-proportion="-7.32">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tile-layer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="88" column="38" selection-start="3179" selection-end="3179" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/tile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="20" selection-start="726" selection-end="726" vertical-scroll-proportion="0.0">
+        <state line="8" column="47" selection-start="274" selection-end="274" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/layer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="27" selection-start="391" selection-end="391" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/doodad.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="6" selection-start="383" selection-end="383" vertical-scroll-proportion="0.0">
+        <state line="11" column="51" selection-start="381" selection-end="381" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/doodad-group.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="4" selection-start="951" selection-end="951" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="34" selection-start="357" selection-end="357" vertical-scroll-proportion="0.5833333">
+        <state line="11" column="20" selection-start="399" selection-end="399" vertical-scroll-proportion="0.28645834">
           <folding />
         </state>
       </provider>
