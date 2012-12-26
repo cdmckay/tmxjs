@@ -1,4 +1,4 @@
-define(["jquery"], function ($) {
+define(function () {
     var Rectangle = function (x, y, w, h) {
         this.x = x || 0;
         this.y = y || 0;
@@ -13,6 +13,11 @@ define(["jquery"], function ($) {
             return false;
         }
         return (w < this.x || w > x) && (h < this.y || h > y);
+    };
+
+    Rectangle.prototype.translate = function(dx, dy) {
+        this.x += dx;
+        this.y += dy;
     };
 
     Rectangle.atOrigin = function (w, h) {

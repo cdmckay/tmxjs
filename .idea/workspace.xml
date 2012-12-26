@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="87eb45c0-45ee-4e46-9bfe-541da756bff4" name="Default" comment="Layers now use their width and height parameters if a">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/tile-layer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/layer.js" afterPath="$PROJECT_DIR$/src/layer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/map.js" afterPath="$PROJECT_DIR$/src/map.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tile-layer.js" afterPath="$PROJECT_DIR$/src/tile-layer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/main.js" afterPath="$PROJECT_DIR$/test/main.js" />
+    <list default="true" id="87eb45c0-45ee-4e46-9bfe-541da756bff4" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/doodad.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/rectangle.js" afterPath="$PROJECT_DIR$/src/util/rectangle.js" />
     </list>
     <ignored path="tmxjs.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,15 +24,6 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="map.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/map.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="45" selection-start="122" selection-end="122" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="tile-layer.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/tile-layer.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -54,10 +42,46 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tile-layer.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="tile-layer.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/tile-layer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="89" column="112" selection-start="4145" selection-end="4145" vertical-scroll-proportion="0.8177083">
+            <state line="89" column="112" selection-start="4145" selection-end="4145" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="doodad.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/doodad.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="6" selection-start="334" selection-end="334" vertical-scroll-proportion="0.234375">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="rectangle.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/util/rectangle.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="19" column="16" selection-start="532" selection-end="532" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="array-util.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/util/array-util.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="string-util.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/util/string-util.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -67,15 +91,6 @@
         <entry file="file://$PROJECT_DIR$/src/tile-set.js">
           <provider selected="true" editor-type-id="text-editor">
             <state line="25" column="12" selection-start="745" selection-end="745" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tile-set.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/tile-set.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="70" selection-start="67" selection-end="67" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -91,27 +106,9 @@
         </entry>
       </file>
       <file leaf-file-name="tile.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/tile.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="102" selection-start="0" selection-end="395" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tile.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/tile.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="38" selection-start="224" selection-end="224" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="29" selection-start="462" selection-end="462" vertical-scroll-proportion="0.0">
+            <state line="0" column="36" selection-start="18" selection-end="36" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -130,9 +127,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/tile.js" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/src/util.js" />
         <option value="$PROJECT_DIR$/src/util/array-util.js" />
         <option value="$PROJECT_DIR$/src/util/string-util.js" />
         <option value="$PROJECT_DIR$/src/view/dom-renderer.js" />
@@ -146,6 +140,9 @@
         <option value="$PROJECT_DIR$/src/tile-layer.js" />
         <option value="$PROJECT_DIR$/main.js" />
         <option value="$PROJECT_DIR$/test/tile-layer.js" />
+        <option value="$PROJECT_DIR$/src/thing.js" />
+        <option value="$PROJECT_DIR$/src/util/rectangle.js" />
+        <option value="$PROJECT_DIR$/src/doodad.js" />
       </list>
     </option>
   </component>
@@ -388,7 +385,11 @@
       <created>1356371027541</created>
       <updated>1356371027541</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Added tile layer tests.">
+      <created>1356555794673</created>
+      <updated>1356555794673</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -470,7 +471,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added more TileSet tests.&#10;Changed behaviour of TileSet addTile method: will now throw error if you try to add a tile with the id already set." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added tile layer tests." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -499,6 +500,7 @@
     <MESSAGE value="Added tile tests." />
     <MESSAGE value="Removed the .idea project info." />
     <MESSAGE value="Added more TileSet tests.&#10;Changed behaviour of TileSet addTile method: will now throw error if you try to add a tile with the id already set." />
+    <MESSAGE value="Added tile layer tests." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -506,30 +508,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/util/string-util.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="11" selection-start="45" selection-end="45" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="18" selection-start="176" selection-end="176" vertical-scroll-proportion="-5.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/jquery.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6312" column="59" selection-start="176342" selection-end="176342" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/util/rectangle.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/map.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="370" vertical-scroll-proportion="0.0">
@@ -547,20 +525,6 @@
     <entry file="file://$PROJECT_DIR$/test/tile-set.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="70" selection-start="67" selection-end="67" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="38" selection-start="224" selection-end="224" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tile-set.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="12" selection-start="745" selection-end="745" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -600,6 +564,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test/tile-layer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="89" column="112" selection-start="4145" selection-end="4145" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/tile-layer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="30" column="50" selection-start="1241" selection-end="1241" vertical-scroll-proportion="0.0">
@@ -607,9 +578,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/tile-layer.js">
+    <entry file="file://$PROJECT_DIR$/src/tile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="89" column="112" selection-start="4145" selection-end="4145" vertical-scroll-proportion="0.8177083">
+        <state line="0" column="36" selection-start="18" selection-end="36" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tile-set.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="12" selection-start="745" selection-end="745" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/array-util.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/string-util.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/rectangle.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="16" selection-start="532" selection-end="532" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/doodad.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="6" selection-start="334" selection-end="334" vertical-scroll-proportion="0.234375">
           <folding />
         </state>
       </provider>
