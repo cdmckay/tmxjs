@@ -71,13 +71,7 @@ define(["jquery", "./tile"], function ($, Tile) {
             }
 
             e.children("tiles").each(function () {
-                var tileElement = $(this);
-                var tile = new Tile();
-                tile.id = tileElement.attr("id") || null;
-                tileElement.find("properties:first property").each(function () {
-                    tile.properties[$(this).attr("name")] = $(this).attr("value");
-                });
-
+                var tile = Tile.fromElement(this);
                 if (tile.id > tileSet.getMaxTileId()) {
                     tileSet.addTile(tile);
                 } else {
