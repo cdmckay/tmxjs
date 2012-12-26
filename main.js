@@ -1,27 +1,49 @@
 require.config({
     paths: {
+        base64: "lib/base64",
+        inflate: "lib/inflate.min",
         jquery: "lib/jquery",
         tmxjs: "src"
+    },
+    shim: {
+        base64: {
+            exports: "Base64"
+        },
+        inflate: {
+            exports: "Zlib.Inflate"
+        }
     }
 });
 
-require(["jquery", "tmxjs/map", "tmxjs/util/string-util"], function ($, Map, StringUtil) {
+require([
+    "base64",
+    "inflate",
+    "jquery",
+    "tmxjs/map",
+    "tmxjs/util/string-util"
+], function (
+    Base64,
+    Inflate,
+    $,
+    Map,
+    StringUtil
+) {
     var url = "examples/desert_uncompressed.tmx";
     var options = {
         dir: url.split("/").slice(0, -1) || ".",
-        encoding: {
-            base64: {
-                encode: function () {},
-                decode: function () {}
-            },
-            csv: {
-                encode: function () {},
-                decode: function () {}
-            }
-        }
+//        encoding: {
+//            base64: {
+//                decode: Base64.decode
+//            }
+//        },
+//        compression: {
+//            gzip: {
+//                decompress: function (data) { return new Inflate(data).decompress(); }
+//            }
+//        }
     };
 
-    $.get("examples/desert_uncompressed.tmx", {}, null, "xml")
+    $.get("examples/desert.tmx", {}, null, "xml")
         .done(function (xml) {
             Map.fromXML(xml, options).done(function (map) {
                 console.log(map);

@@ -4,12 +4,8 @@
     <list default="true" id="87eb45c0-45ee-4e46-9bfe-541da756bff4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.js" afterPath="$PROJECT_DIR$/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/doodad-group.js" afterPath="$PROJECT_DIR$/src/doodad-group.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/doodad.js" afterPath="$PROJECT_DIR$/src/doodad.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/map.js" afterPath="$PROJECT_DIR$/src/map.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tile-layer.js" afterPath="$PROJECT_DIR$/src/tile-layer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tile-set.js" afterPath="$PROJECT_DIR$/src/tile-set.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tile.js" afterPath="$PROJECT_DIR$/src/tile.js" />
     </list>
     <ignored path="tmxjs.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,7 +28,7 @@
       <file leaf-file-name="tile-layer.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/tile-layer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="88" column="38" selection-start="3179" selection-end="3179" vertical-scroll-proportion="0.0">
+            <state line="97" column="68" selection-start="3580" selection-end="3580" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -41,7 +37,7 @@
       <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="38" selection-start="382" selection-end="382" vertical-scroll-proportion="0.0">
+            <state line="42" column="11" selection-start="603" selection-end="871" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -56,10 +52,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="doodad-group.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="doodad-group.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/doodad-group.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="20" selection-start="399" selection-end="399" vertical-scroll-proportion="0.28645834">
+            <state line="11" column="20" selection-start="399" selection-end="399" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -74,10 +70,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="map.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="map.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/map.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="126" column="49" selection-start="3601" selection-end="3601" vertical-scroll-proportion="0.0">
+            <state line="89" column="31" selection-start="2275" selection-end="2275" vertical-scroll-proportion="0.6770833">
               <folding />
             </state>
           </provider>
@@ -141,13 +137,13 @@
         <option value="$PROJECT_DIR$/src/thing.js" />
         <option value="$PROJECT_DIR$/src/util/rectangle.js" />
         <option value="$PROJECT_DIR$/test/main.js" />
-        <option value="$PROJECT_DIR$/main.js" />
-        <option value="$PROJECT_DIR$/src/map.js" />
-        <option value="$PROJECT_DIR$/src/tile-layer.js" />
         <option value="$PROJECT_DIR$/src/tile-set.js" />
         <option value="$PROJECT_DIR$/src/tile.js" />
         <option value="$PROJECT_DIR$/src/doodad.js" />
         <option value="$PROJECT_DIR$/src/doodad-group.js" />
+        <option value="$PROJECT_DIR$/src/tile-layer.js" />
+        <option value="$PROJECT_DIR$/main.js" />
+        <option value="$PROJECT_DIR$/src/map.js" />
       </list>
     </option>
   </component>
@@ -263,6 +259,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="util" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tmxjs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tmxjs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -402,7 +412,11 @@
       <created>1356558644874</created>
       <updated>1356558644874</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Added framework for passing encoding and compression algorithms.">
+      <created>1356560077865</created>
+      <updated>1356560077865</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -438,7 +452,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.291889" sideWeight="0.44419643" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32924107" sideWeight="0.49839914" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924107" sideWeight="0.49839914" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924107" sideWeight="0.49786553" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -484,7 +498,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added initial Doodad code.&#10;Moved Tile XML deserialization to that class to be consistent with the rest of the classes." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added framework for passing encoding and compression algorithms." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -516,6 +530,7 @@
     <MESSAGE value="Added tile layer tests." />
     <MESSAGE value="Added Doodad class (Object in TMX lingo)." />
     <MESSAGE value="Added initial Doodad code.&#10;Moved Tile XML deserialization to that class to be consistent with the rest of the classes." />
+    <MESSAGE value="Added framework for passing encoding and compression algorithms." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -572,37 +587,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="34" selection-start="357" selection-end="357" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="38" selection-start="382" selection-end="382" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/map.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="126" column="49" selection-start="3601" selection-end="3601" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/tile-set.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="33" column="23" selection-start="932" selection-end="943" vertical-scroll-proportion="-7.32">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tile-layer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="88" column="38" selection-start="3179" selection-end="3179" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -630,7 +617,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/doodad-group.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="20" selection-start="399" selection-end="399" vertical-scroll-proportion="0.28645834">
+        <state line="11" column="20" selection-start="399" selection-end="399" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="34" selection-start="357" selection-end="357" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tile-layer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="97" column="68" selection-start="3580" selection-end="3580" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="11" selection-start="603" selection-end="871" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/map.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="89" column="31" selection-start="2275" selection-end="2275" vertical-scroll-proportion="0.6770833">
           <folding />
         </state>
       </provider>

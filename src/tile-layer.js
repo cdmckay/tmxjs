@@ -99,7 +99,15 @@ define(["jquery", "./layer", "./util/rectangle"], function ($, Layer, Rectangle)
         layerElement.find("data:first").each(function () {
             var encoding = $(this).attr("encoding");
             if (encoding) {
-                throw new Error("Encoded maps not supported");
+                switch (encoding) {
+                    case "base64":
+                        if (!options.encoding.base64.decode) {
+                            throw new Error("Could not find decoder for encoding: " + encoding);
+                        }
+                        break;
+                    default:
+                        throw new Error("Unsupported encoding: " + encoding);
+                }
             }
 
             $(this).children("tile").each(function (n) {

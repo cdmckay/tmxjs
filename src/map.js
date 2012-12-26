@@ -90,12 +90,12 @@ define([
         options = $.extend(true, {
             dir: ".",
             encoding: {
-                base64: null,
-                csv: null
+                base64: {},
+                csv: {}
             },
             compression: {
-                gzip: null,
-                zlib: null
+                gzip: {},
+                zlib: {}
             }
         }, options);
 
