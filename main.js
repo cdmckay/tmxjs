@@ -28,22 +28,17 @@ require([
     Map,
     StringUtil
 ) {
-    var url = "examples/desert_uncompressed.tmx";
+    var url = "examples/desert_base64_uncompressed.tmx";
     var options = {
         dir: url.split("/").slice(0, -1) || ".",
-//        encoding: {
-//            base64: {
-//                decode: Base64.decode
-//            }
-//        },
-//        compression: {
-//            gzip: {
-//                decompress: function (data) { return new Inflate(data).decompress(); }
-//            }
-//        }
+        encoding: {
+            base64: {
+                decode: Base64.decode
+            }
+        }
     };
 
-    $.get("examples/desert.tmx", {}, null, "xml")
+    $.get(url, {}, null, "xml")
         .done(function (xml) {
             Map.fromXML(xml, options).done(function (map) {
                 console.log(map);

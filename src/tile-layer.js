@@ -97,6 +97,7 @@ define(["jquery", "./layer", "./util/rectangle"], function ($, Layer, Rectangle)
         });
 
         layerElement.find("data:first").each(function () {
+            var decode, decompress;
             var encoding = $(this).attr("encoding");
             if (encoding) {
                 switch (encoding) {
@@ -104,16 +105,48 @@ define(["jquery", "./layer", "./util/rectangle"], function ($, Layer, Rectangle)
                         if (!options.encoding.base64.decode) {
                             throw new Error("Could not find decoder for encoding: " + encoding);
                         }
+                        decode = options.encoding.base64.decode;
                         break;
                     default:
                         throw new Error("Unsupported encoding: " + encoding);
                 }
+
+                // You can only have compression with encoding.
+                var compression = $(this).attr("compression");
+                if (compression) {
+                    switch (compression) {
+                        case "zlib":
+                            if (!options.compression.zlib.decompress) {
+                                throw new Error("Could not find decompressor for compression: " + compression);
+                            }
+                            decompress = options.compression.zlib.decompress;
+                            break;
+                        default:
+                            throw new Error("Unsupported compression: " + compression);
+                    }
+                }
             }
 
-            $(this).children("tile").each(function (n) {
+            var globalIds = [];
+            if (decode) {
+                var decoded = decode($(this).text());
+                for (var n = 0; n < decoded.length; n += 4) {
+                    var globalId = 0;
+                    globalId += decoded.charCodeAt(n + 0) << 0;
+                    globalId += decoded.charCodeAt(n + 1) << 8;
+                    globalId += decoded.charCodeAt(n + 2) << 16;
+                    globalId += decoded.charCodeAt(n + 3) << 24;
+                    globalIds.push(globalId);
+                }
+            } else {
+                $(this).children("tile").each(function (n) {
+                    globalIds.push(parseInt($(this).attr("gid")) || null);
+                });
+            }
+
+            $.each(globalIds, function (n, globalId) {
                 var i = n % tileLayer.bounds.w;
                 var j = Math.floor(n / tileLayer.bounds.w);
-                var globalId = parseInt($(this).attr("gid")) || null;
                 var tileSet = map.findTileSet(globalId);
                 tileLayer.setTileAt(i, j, tileSet ? tileSet.getTileAt(globalId - tileSet.firstGlobalId) : null);
             });
