@@ -97,21 +97,12 @@ define(["jquery", "./layer", "./util/rectangle"], function ($, Layer, Rectangle)
         });
 
         layerElement.find("data:first").each(function () {
-            var decode, decompress;
-            var encoding = $(this).attr("encoding");
-            if (encoding) {
-                switch (encoding) {
-                    case "base64":
-                        if (!options.encoding.base64.decode) {
-                            throw new Error("Could not find decoder for encoding: " + encoding);
-                        }
-                        decode = options.encoding.base64.decode;
-                        break;
-                    default:
-                        throw new Error("Unsupported encoding: " + encoding);
+            var handleBase64 = function (options) {
+                if (!options.encoding.base64.decode) {
+                    throw new Error("Could not find decoder for encoding: " + encoding);
                 }
-
-                // You can only have compression with encoding.
+                var decode = options.encoding.base64.decode;
+                var decompress = function (data) { return data };
                 var compression = $(this).attr("compression");
                 if (compression) {
                     switch (compression) {
@@ -125,21 +116,43 @@ define(["jquery", "./layer", "./util/rectangle"], function ($, Layer, Rectangle)
                             throw new Error("Unsupported compression: " + compression);
                     }
                 }
-            }
-
-            var globalIds = [];
-            if (decode) {
-                var decoded = decode($(this).text());
-                for (var n = 0; n < decoded.length; n += 4) {
+                var globalIds = [];
+                var data = decompress(decode($(this).text()));
+                for (var n = 0; n < data.length; n += 4) {
                     var globalId = 0;
-                    globalId += decoded.charCodeAt(n + 0) << 0;
-                    globalId += decoded.charCodeAt(n + 1) << 8;
-                    globalId += decoded.charCodeAt(n + 2) << 16;
-                    globalId += decoded.charCodeAt(n + 3) << 24;
+                    globalId += data.charCodeAt(n + 0) << 0;
+                    globalId += data.charCodeAt(n + 1) << 8;
+                    globalId += data.charCodeAt(n + 2) << 16;
+                    globalId += data.charCodeAt(n + 3) << 24;
+                    // TODO Deal with "flip" bits.
                     globalIds.push(globalId);
                 }
+                return globalIds;
+            };
+            var handleCSV = function (options) {
+                var globalIds = [];
+                $.each($(this).text().split(","), function(n) {
+                    // TODO Deal with "flip" bits.
+                    globalIds.push(parseInt(this));
+                });
+                return globalIds;
+            };
+
+            var globalIds = [];
+            var encoding = $(this).attr("encoding");
+            if (encoding) {
+                switch (encoding) {
+                    case "base64":
+                        globalIds = handleBase64.call(this, options);
+                        break;
+                    case "csv":
+                        globalIds = handleCSV.call(this, options);
+                        break;
+                    default:
+                        throw new Error("Unsupported encoding: " + encoding);
+                }
             } else {
-                $(this).children("tile").each(function (n) {
+                $(this).children("tile").each(function () {
                     globalIds.push(parseInt($(this).attr("gid")) || null);
                 });
             }

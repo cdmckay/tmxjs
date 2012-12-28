@@ -28,12 +28,19 @@ require([
     Map,
     StringUtil
 ) {
-    var url = "examples/desert_base64_uncompressed.tmx";
+    var url = "examples/desert_csv_uncompressed.tmx";
     var options = {
         dir: url.split("/").slice(0, -1) || ".",
         encoding: {
             base64: {
                 decode: Base64.decode
+            }
+        },
+        compression: {
+            zlib: {
+                decompress: function (data) {
+                    return new Inflate(data).decompress();
+                }
             }
         }
     };
