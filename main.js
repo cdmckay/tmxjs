@@ -1,45 +1,43 @@
 require.config({
     paths: {
-        base64: "lib/base64",
         inflate: "lib/inflate.min",
         jquery: "lib/jquery",
-        tmxjs: "src"
+        tmxjs: "src",
+        underscore: "lib/underscore"
     },
     shim: {
-        base64: {
-            exports: "Base64"
-        },
-        inflate: {
-            exports: "Zlib.Inflate"
-        }
+        inflate: { exports: "Zlib.Inflate" },
+        underscore: { exports: "_" }
     }
 });
 
 require([
-    "base64",
     "inflate",
     "jquery",
     "tmxjs/map",
-    "tmxjs/util/string-util"
+    "tmxjs/util/string-util",
+    "underscore"
 ], function (
-    Base64,
     Inflate,
     $,
     Map,
-    StringUtil
+    StringUtil,
+    _
 ) {
-    var url = "examples/desert_csv_uncompressed.tmx";
+    var url = "examples/desert.tmx";
     var options = {
         dir: url.split("/").slice(0, -1) || ".",
         encoding: {
             base64: {
-                decode: Base64.decode
+                decode: function (str) {
+
+                }
             }
         },
         compression: {
             zlib: {
-                decompress: function (data) {
-                    return new Inflate(data).decompress();
+                decompress: function (bytes) {
+                    return new Inflate(bytes, { verify: false }).decompress();
                 }
             }
         }
@@ -59,7 +57,11 @@ require([
                 });
                 var ruleSets = {};
                 $.each(map.layers, function (ln, layer) {
-                    $.each(this.tiles, function (tn, tile) {
+                    $.each(layer.tiles, function (tn, tile) {
+                        if (tile == null) {
+                            return true;
+                        }
+
                         var i = tn % layer.bounds.w;
                         var j = Math.floor(tn / layer.bounds.w);
                         var tileSet = map.findTileSet(tile.getGlobalId());
@@ -93,12 +95,15 @@ require([
                             tile.getGlobalId()
                         );
                         $("<div>", {
+                            'id': 'tile-' + tn,
                             'class': classes,
                             'style': StringUtil.format("left: {0}px; top: {1}px;",
                                 i * tile.bounds.w,
                                 j * tile.bounds.h
                             )
                         }).appendTo(canvas);
+
+                        return true;
                     });
                 });
                 // Create the CSS classes.

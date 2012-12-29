@@ -1,4 +1,4 @@
-define(["jquery", "./layer", "./util/rectangle"], function ($, Layer, Rectangle) {
+define(["jquery", "./layer", "./util/base64", "./util/rectangle"], function ($, Layer, Base64, Rectangle) {
     var TileLayer = function(map, bounds) {
         Layer.call(this, map, bounds);
         this.tiles = new Array(this.bounds.w * this.bounds.h);
@@ -98,10 +98,6 @@ define(["jquery", "./layer", "./util/rectangle"], function ($, Layer, Rectangle)
 
         layerElement.find("data:first").each(function () {
             var handleBase64 = function (options) {
-                if (!options.encoding.base64.decode) {
-                    throw new Error("Could not find decoder for encoding: " + encoding);
-                }
-                var decode = options.encoding.base64.decode;
                 var decompress = function (data) { return data };
                 var compression = $(this).attr("compression");
                 if (compression) {
@@ -117,13 +113,13 @@ define(["jquery", "./layer", "./util/rectangle"], function ($, Layer, Rectangle)
                     }
                 }
                 var globalIds = [];
-                var data = decompress(decode($(this).text()));
-                for (var n = 0; n < data.length; n += 4) {
+                var bytes = decompress(Base64.decode($(this).text()));
+                for (var n = 0; n < bytes.length; n += 4) {
                     var globalId = 0;
-                    globalId += data.charCodeAt(n + 0) << 0;
-                    globalId += data.charCodeAt(n + 1) << 8;
-                    globalId += data.charCodeAt(n + 2) << 16;
-                    globalId += data.charCodeAt(n + 3) << 24;
+                    globalId += bytes[n + 0] << 0;
+                    globalId += bytes[n + 1] << 8;
+                    globalId += bytes[n + 2] << 16;
+                    globalId += bytes[n + 3] << 24;
                     // TODO Deal with "flip" bits.
                     globalIds.push(globalId);
                 }
@@ -153,6 +149,7 @@ define(["jquery", "./layer", "./util/rectangle"], function ($, Layer, Rectangle)
                 }
             } else {
                 $(this).children("tile").each(function () {
+                    // TODO Deal with "flip" bits.
                     globalIds.push(parseInt($(this).attr("gid")) || null);
                 });
             }

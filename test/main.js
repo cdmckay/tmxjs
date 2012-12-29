@@ -4,9 +4,7 @@ require.config({
         tmxjs: "../src"
     },
     shim: {
-        nodeunit: {
-            exports: "nodeunit"
-        }
+        nodeunit: { exports: "nodeunit" }
     }
 });
 
