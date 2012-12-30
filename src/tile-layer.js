@@ -101,19 +101,13 @@ define(["jquery", "./layer", "./util/base64", "./util/rectangle"], function ($, 
                 var decompress = function (data) { return data };
                 var compression = $(this).attr("compression");
                 if (compression) {
-                    switch (compression) {
-                        case "zlib":
-                            if (!options.compression.zlib.decompress) {
-                                throw new Error("Could not find decompressor for compression: " + compression);
-                            }
-                            decompress = options.compression.zlib.decompress;
-                            break;
-                        default:
-                            throw new Error("Unsupported compression: " + compression);
+                    if (!options.compression[compression] || !options.compression[compression].decompress) {
+                        throw new Error("Could not find decompressor for compression: " + compression);
                     }
+                    decompress = options.compression[compression].decompress;
                 }
                 var globalIds = [];
-                var bytes = decompress(Base64.decode($(this).text()));
+                var bytes = decompress(Base64.decode($.trim($(this).text())));
                 for (var n = 0; n < bytes.length; n += 4) {
                     var globalId = 0;
                     globalId += bytes[n + 0] << 0;

@@ -1,44 +1,40 @@
 require.config({
     paths: {
+        gunzip: "lib/gunzip.min",
         inflate: "lib/inflate.min",
         jquery: "lib/jquery",
         tmxjs: "src",
         underscore: "lib/underscore"
     },
     shim: {
+        gunzip: { exports: "Zlib.Gunzip" },
         inflate: { exports: "Zlib.Inflate" },
         underscore: { exports: "_" }
     }
 });
 
 require([
+    "gunzip",
     "inflate",
     "jquery",
     "tmxjs/map",
-    "tmxjs/util/string-util",
-    "underscore"
+    "tmxjs/util/string-util"
 ], function (
+    Gunzip,
     Inflate,
     $,
     Map,
-    StringUtil,
-    _
+    StringUtil
 ) {
-    var url = "examples/desert.tmx";
+    var url = "examples/desert_base64_gzip.tmx";
     var options = {
         dir: url.split("/").slice(0, -1) || ".",
-        encoding: {
-            base64: {
-                decode: function (str) {
-
-                }
-            }
-        },
         compression: {
+            gzip: {
+                decompress: function (bytes) { return new Gunzip(bytes).decompress(); }
+            },
             zlib: {
-                decompress: function (bytes) {
-                    return new Inflate(bytes, { verify: false }).decompress();
-                }
+                decompress: function (bytes) { return new Inflate(bytes).decompress(); }
             }
         }
     };

@@ -89,14 +89,7 @@ define([
     Map.fromXML = function (xml, options) {
         options = $.extend(true, {
             dir: ".",
-            encoding: {
-                base64: {},
-                csv: {}
-            },
-            compression: {
-                gzip: {},
-                zlib: {}
-            }
+            compression: {}
         }, options);
 
         var root = $(xml).find("map");
