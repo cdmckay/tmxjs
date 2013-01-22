@@ -1,6 +1,8 @@
 <component name="ProjectDictionaryState">
   <dictionary name="cdmckay">
     <words>
+      <w>antidiagonal</w>
+      <w>antidiagonally</w>
       <w>decompressor</w>
       <w>firstgid</w>
       <w>gunzip</w>
@@ -8,6 +10,7 @@
       <w>tileheight</w>
       <w>tilewidth</w>
       <w>tmxjs</w>
+      <w>webkit</w>
     </words>
   </dictionary>
 </component>
