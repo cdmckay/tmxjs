@@ -26,7 +26,7 @@ require([
     Map,
     StringUtil
 ) {
-    var url = "examples/desert_rotated.tmx";
+    var url = "examples/desert.tmx";
     var options = {
         dir: url.split("/").slice(0, -1) || ".",
         compression: {
@@ -46,7 +46,6 @@ require([
                 $.each(map.tileSets, function () {
                     console.log(this);
                 });
-                // TODO Move to separate file.
                 var canvas = $("#map").css({
                     width: map.bounds.w * map.tileInfo.w,
                     height: map.bounds.h * map.tileInfo.h
@@ -113,19 +112,10 @@ require([
                                 m[1] = -m[1];
                                 m[3] = -m[3];
                             }
-                            var matrix = StringUtil.format(
-                                "m({0}, {1}, {2}, {3}, 0, 0)",
-                                m[0],
-                                m[1],
-                                m[2],
-                                m[3]
-                            );
+                            var matrix = StringUtil.format("matrix({0}, {1}, {2}, {3}, 0, 0)", m[0], m[1], m[2], m[3]);
                             var dxMatrix =  StringUtil.format(
                                 "progid:DXImageTransform.Microsoft.Matrix(M11={0},M12={1},M21={2},M22={3},sizingMethod='auto expand')",
-                                m[0],
-                                m[1],
-                                m[2],
-                                m[3]
+                                m[0], m[1], m[2], m[3]
                             );
                             ruleSet = [
                                 "-moz-transform: " + matrix + ";",
