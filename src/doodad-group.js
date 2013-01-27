@@ -1,6 +1,6 @@
 define(["jquery", "./layer", "./util/rectangle"], function ($, Layer, Rectangle) {
-    var DoodadGroup = function(map, bounds) {
-        Layer.call(this, map, bounds);
+    var DoodadGroup = function(name, bounds) {
+        Layer.call(this, name, bounds);
         this.doodads = [];
     };
     DoodadGroup.prototype = new Layer;
@@ -27,6 +27,23 @@ define(["jquery", "./layer", "./util/rectangle"], function ($, Layer, Rectangle)
 
     DoodadGroup.prototype.getDoodadNear = function (x, y, tolerance) {
 
+    };
+
+    DoodadGroup.prototype.clone = function () {
+        var layer = new DoodadGroup();
+
+        // Layer
+        layer.name = this.name;
+        layer.visible = this.visible;
+        layer.map = this.map;
+        layer.opacity = this.opacity;
+        layer.bounds = this.bounds.clone();
+        layer.properties = $.extend({}, this.properties);
+
+        // Doodad Group
+        layer.doodads = this.doodads.slice();
+
+        return layer;
     };
 
     DoodadGroup.fromElement = function (element, options) {

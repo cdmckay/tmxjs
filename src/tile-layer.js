@@ -11,8 +11,8 @@ define([
     Base64,
     Rectangle
 ) {
-    var TileLayer = function(map, bounds) {
-        Layer.call(this, map, bounds);
+    var TileLayer = function(name, bounds) {
+        Layer.call(this, name, bounds);
         this.cells = new Array(this.bounds.w * this.bounds.h);
         this.tileProperties = {};
     };
@@ -92,6 +92,24 @@ define([
                 this.cells[n] = null;
             }
         }
+    };
+
+    TileLayer.prototype.clone = function () {
+        var layer = new TileLayer();
+
+        // Layer
+        layer.name = this.name;
+        layer.visible = this.visible;
+        layer.map = this.map;
+        layer.opacity = this.opacity;
+        layer.bounds = this.bounds.clone();
+        layer.properties = $.extend({}, this.properties);
+
+        // Tile Layer
+        layer.cells = this.cells.slice();
+        layer.tileProperties = $.extend({}, this.tileProperties);
+
+        return layer;
     };
 
     TileLayer.fromElement = function (element, map, options) {

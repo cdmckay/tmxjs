@@ -1,13 +1,10 @@
 define(["jquery", "./util/rectangle"], function ($, Rectangle) {
-    var Layer = function (map, bounds) {
-        this.name = null;
+    var Layer = function (name, bounds) {
+        this.name = name;
         this.visible = true;
-        this.map = map;
+        this.map = null;
         this.opacity = 1.0;
-        this.bounds = bounds || Rectangle.atOrigin(
-            (map && map.bounds.w) || 0,
-            (map && map.bounds.h) || 0
-        );
+        this.bounds = bounds || new Rectangle();
         this.properties = {};
     };
 
@@ -16,6 +13,10 @@ define(["jquery", "./util/rectangle"], function ($, Rectangle) {
     };
 
     Layer.prototype.mirror = function (direction) {
+        throw new Error("Not implemented");
+    };
+
+    Layer.prototype.clone = function () {
         throw new Error("Not implemented");
     };
 

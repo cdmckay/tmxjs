@@ -40,6 +40,7 @@ define([
     };
 
     Map.prototype.insertLayerAt = function (index, layer) {
+        layer.map = this;
         this.layers.splice(index, 0, layer);
     };
 

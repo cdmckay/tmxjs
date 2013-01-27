@@ -20,6 +20,10 @@ define(function () {
         this.y += dy;
     };
 
+    Rectangle.prototype.clone = function () {
+        return new Rectangle(this.x, this.y, this.w, this.h);
+    };
+
     Rectangle.atOrigin = function (w, h) {
         return new Rectangle(0, 0, w, h);
     };
