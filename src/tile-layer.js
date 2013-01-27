@@ -16,7 +16,8 @@ define([
         this.cells = new Array(this.bounds.w * this.bounds.h);
         this.tileProperties = {};
     };
-    TileLayer.prototype = Layer;
+    TileLayer.prototype = new Layer;
+    TileLayer.prototype.constructor = TileLayer;
 
     TileLayer.prototype.rotate = function (angle) {
         var newBounds;
@@ -83,6 +84,14 @@ define([
         var i = tx - this.bounds.x;
         var j = ty - this.bounds.y;
         return this.bounds.contains(tx, ty) ? this.cells[j * this.bounds.w + i] : null;
+    };
+
+    TileLayer.prototype.removeTile = function (tile) {
+        for (var n = 0; n < this.tiles.length; n++) {
+            if (this.cells[n] && this.cells[n].tile === tile) {
+                this.cells[n] = null;
+            }
+        }
     };
 
     TileLayer.fromElement = function (element, map, options) {

@@ -2,20 +2,21 @@ define([
     "jquery",
     "./tile-layer",
     "./tile-set",
-    "./util/array-util",
     "./util/rectangle"
 ], function (
     $,
     TileLayer,
     TileSet,
-    ArrayUtil,
     Rectangle
 ) {
-    var Map = function (width, height) {
+    var Map = function (orientation, width, height, tileWidth, tileHeight) {
         this.version = null;
         this.bounds = Rectangle.atOrigin(width, height);
-        this.orientation = "orthogonal";
-        this.tileInfo = { w: 0, h: 0 };
+        this.orientation = orientation || "orthogonal";
+        this.tileInfo = {
+            w: tileWidth || 0,
+            h: tileHeight || 0
+        };
         this.layers = [];
         this.tileSets = [];
         this.properties = {};
@@ -38,12 +39,38 @@ define([
         this.layers[index] = layer;
     };
 
+    Map.prototype.insertLayerAt = function (index, layer) {
+        this.layers.splice(index, 0, layer);
+    };
+
     Map.prototype.removeLayerAt = function (index) {
-        ArrayUtil.remove(this.tileSets, index);
+        var layer = this.layers[index];
+        this.layers.splice(index, 1);
+        return layer;
     };
 
     Map.prototype.removeAllLayers = function () {
         this.layers.length = 0;
+    };
+
+    Map.prototype.getTileLayers = function () {
+        var tileLayers = [];
+        $.each(this.layers, function () {
+            if (this instanceof TileLayer) {
+                tileLayers.push(this);
+            }
+        });
+        return tileLayers;
+    };
+
+    Map.prototype.getDoodadGroups = function () {
+        var doodadGroups = [];
+        $.each(this.layers, function () {
+            if (this instanceof DoodadGroup) {
+                doodadGroups.push(this);
+            }
+        });
+        return doodadGroups;
     };
 
     Map.prototype.addTileSet = function (tileSet) {
@@ -67,7 +94,7 @@ define([
             });
         });
         var index = $.inArray(tileSet, this.tileSets);
-        ArrayUtil.remove(this.tileSets, index);
+        this.tileSets.splice(index, 1);
     };
 
     Map.prototype.findTileSet = function (globalId) {
@@ -82,7 +109,11 @@ define([
         return target;
     };
 
-    Map.prototype.swapTileSets = function(indexA, indexB) {
+    Map.prototype.swapTileSets = function(index1, index2) {
+
+    };
+
+    Map.prototype.toXML = function (options) {
 
     };
 
@@ -93,11 +124,13 @@ define([
         }, options);
 
         var root = $(xml).find("map");
-        var map = new Map(parseInt(root.attr("width")), parseInt(root.attr("height")));
-        map.version = parseInt(root.attr("version"));
-        map.tileInfo.w = parseInt(root.attr("tilewidth")) || 0;
-        map.tileInfo.h = parseInt(root.attr("tileheight")) || 0;
-        map.orientation = root.attr("orientation") || "orthogonal";
+        var map = new Map(
+            root.attr("orientation"),
+            parseInt(root.attr("width")),
+            parseInt(root.attr("height")),
+            parseInt(root.attr("tilewidth")),
+            parseInt(root.attr("tileheight"))
+        );
 
         // Load properties.
         root.find("properties:first property").each(function () {
