@@ -12,10 +12,12 @@ define([
     Rectangle
 ) {
     var tests = {
-        "test constructor with map argument": function (test) {
-            var w = 1, h = 2;
-            var map = new Map(w, h);
-            var tileLayer = new TileLayer(map);
+        "test constructor": function (test) {
+            var w = 1, h = 2, tw = 3, th = 4;
+            var map = new Map("orthogonal", w, h, tw, th);
+            var name = "test";
+            var tileLayer = new TileLayer(name, map.bounds);
+            test.equal(tileLayer.name, name, "Should match the name argument");
             test.equal(tileLayer.bounds.w, map.bounds.w, "Should match map width");
             test.equal(tileLayer.bounds.h, map.bounds.h, "Should match map height");
             test.done();

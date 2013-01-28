@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="87eb45c0-45ee-4e46-9bfe-541da756bff4" name="Default" comment="Added clone methods to Rectangle, TileLayer and DoodadGroup.&#10;Changed the Layer-type constructors to take name">
+    <list default="true" id="905c14dc-6fcf-4b00-bcf6-9acd4d53a60a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/doodad-group.js" afterPath="$PROJECT_DIR$/src/doodad-group.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/layer.js" afterPath="$PROJECT_DIR$/src/layer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/map.js" afterPath="$PROJECT_DIR$/src/map.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tile-layer.js" afterPath="$PROJECT_DIR$/src/tile-layer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/rectangle.js" afterPath="$PROJECT_DIR$/src/util/rectangle.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/map.js" afterPath="$PROJECT_DIR$/test/map.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/tile-layer.js" afterPath="$PROJECT_DIR$/test/tile-layer.js" />
     </list>
     <ignored path="tmxjs.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,19 +24,46 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="map.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/map.js">
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="25" selection-start="1015" selection-end="1015" vertical-scroll-proportion="0.36165327">
+            <state line="14" column="9" selection-start="355" selection-end="355" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="layer.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/layer.js">
+      <file leaf-file-name="map.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/map.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="29" selection-start="379" selection-end="379" vertical-scroll-proportion="0.0">
+            <state line="0" column="8" selection-start="8" selection-end="8" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="41" column="28" selection-start="940" selection-end="940" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/main.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="30" column="16" selection-start="485" selection-end="485" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="map.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/map.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="83" selection-start="572" selection-end="572" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -48,7 +72,34 @@
       <file leaf-file-name="tile-layer.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/tile-layer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="31" selection-start="284" selection-end="284" vertical-scroll-proportion="0.0">
+            <state line="0" column="8" selection-start="8" selection-end="8" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tile-layer.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test/tile-layer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="19" column="79" selection-start="529" selection-end="529" vertical-scroll-proportion="0.4718543">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tile-set.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/tile-set.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="21" selection-start="21" selection-end="21" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="rectangle.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/util/rectangle.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="39" column="9" selection-start="1616" selection-end="1616" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -57,16 +108,7 @@
       <file leaf-file-name="rectangle.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/util/rectangle.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="56" selection-start="648" selection-end="648" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="doodad-group.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/doodad-group.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="36" selection-start="463" selection-end="463" vertical-scroll-proportion="0.0">
+            <state line="12" column="25" selection-start="357" selection-end="357" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -85,40 +127,38 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/test/tile.js" />
-        <option value="$PROJECT_DIR$/src/thing.js" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/test/index.html" />
+        <option value="$PROJECT_DIR$/src/layer.js" />
+        <option value="$PROJECT_DIR$/src/map.js" />
+        <option value="$PROJECT_DIR$/src/tile-layer.js" />
         <option value="$PROJECT_DIR$/src/tile-set.js" />
         <option value="$PROJECT_DIR$/src/tile.js" />
-        <option value="$PROJECT_DIR$/src/doodad.js" />
-        <option value="$PROJECT_DIR$/test/main.js" />
-        <option value="$PROJECT_DIR$/src/util/base64.js" />
-        <option value="$PROJECT_DIR$/test/tile-layer.js" />
-        <option value="$PROJECT_DIR$/src/cell.js" />
-        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/src/tmx.js" />
         <option value="$PROJECT_DIR$/main.js" />
+        <option value="$PROJECT_DIR$/src/view/dom-renderer.js" />
+        <option value="$PROJECT_DIR$/test/main.js" />
+        <option value="$PROJECT_DIR$/test/util/rectangle.js" />
         <option value="$PROJECT_DIR$/src/util/rectangle.js" />
-        <option value="$PROJECT_DIR$/src/layer.js" />
-        <option value="$PROJECT_DIR$/src/tile-layer.js" />
-        <option value="$PROJECT_DIR$/src/doodad-group.js" />
-        <option value="$PROJECT_DIR$/src/map.js" />
+        <option value="$PROJECT_DIR$/test/map.js" />
+        <option value="$PROJECT_DIR$/test/tile-layer.js" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="y" value="22" />
+    <option name="width" value="1280" />
+    <option name="height" value="774" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
     <OptionsSetting value="true" id="Update" />
     <OptionsSetting value="true" id="Status" />
     <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="2" id="Add" />
+    <ConfirmationsSetting value="0" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectReloadState">
@@ -201,54 +241,158 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tmxjs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tmxjs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../junoawards" />
-    <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="options.searchVisible" value="true" />
-  </component>
-  <component name="PublishConfig">
-    <servers>
-      <server id="30cb17e3-3693-4683-8b6d-4d4f785bb652">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" />
-          </mappings>
-        </serverdata>
-      </server>
-    </servers>
+    <property name="FullScreen" value="false" />
+    <property name="DefaultHtmlFileTemplate" value="Html5" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\cdmckay\XAMPP\htdocs\tmxjs\src" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\cdmckay\XAMPP\htdocs\tmxjs\src" />
-      <recent name="C:\Users\cdmckay\XAMPP\htdocs\tmxjs\src\tmxjs" />
-      <recent name="C:\Users\cdmckay\XAMPP\htdocs\tmxjs\src\util" />
-      <recent name="C:\Users\cdmckay\XAMPP\htdocs\tmxjs" />
+      <recent name="$PROJECT_DIR$" />
     </key>
+  </component>
+  <component name="RestoreUpdateTree">
+    <UpdateInfo date="Moments ago" ActionInfo="_Update">
+      <UpdatedFiles>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated from server" />
+          <option name="myStatusName" value="Changed on server" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CHANGED_ON_SERVER" />
+          <FILE-GROUP>
+            <option name="myUpdateName" value="Updated" />
+            <option name="myStatusName" value="Changed" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" value="UPDATED" />
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/dictionaries/cdmckay.xml</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/index.html</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/main.js</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/src/layer.js</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/src/map.js</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/src/tile-layer.js</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/src/tile-set.js</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/src/tile.js</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/src/util/rectangle.js</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/test/main.js</PATH>
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" value="Created" />
+            <option name="myStatusName" value="Created" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" value="CREATED" />
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/examples/desert_base64_gzip.tmx</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/examples/desert_base64_uncompressed.tmx</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/examples/desert_csv_uncompressed.tmx</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/examples/desert_rotated.tmx</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/examples/desert_unencoded_uncompressed.tmx</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/lib/gunzip.min.js</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/lib/inflate.min.js</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/lib/underscore.js</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/src/cell.js</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/src/doodad-group.js</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/src/doodad.js</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/src/util/base64.js</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/test/tile-layer.js</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/test/tile-set.js</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/test/tile.js</PATH>
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" value="Deleted" />
+            <option name="myStatusName" value="Deleted" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="true" />
+            <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/codeStyleSettings.xml</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/encodings.xml</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/misc.xml</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/modules.xml</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/tmxjs.iml</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/vcs.xml</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/examples/desert_uncompressed.tmx</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/src/util/array-util.js</PATH>
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" value="Restored" />
+            <option name="myStatusName" value="Will be restored" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" value="RESTORED" />
+          </FILE-GROUP>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Modified" />
+          <option name="myStatusName" value="Modified" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="MODIFIED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Skipped" />
+          <option name="myStatusName" value="Skipped" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="SKIPPED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Merged with conflicts" />
+          <option name="myStatusName" value="Will be merged with conflicts" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="MERGED_WITH_CONFLICTS" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Merged with tree conflicts" />
+          <option name="myStatusName" value="Merged with tree conflicts" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Merged" />
+          <option name="myStatusName" value="Will be merged" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="MERGED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Not in repository" />
+          <option name="myStatusName" value="Not in repository" />
+          <option name="mySupportsDeletion" value="true" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UNKNOWN" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Locally added" />
+          <option name="myStatusName" value="Locally added" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="LOCALLY_ADDED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Locally removed" />
+          <option name="myStatusName" value="Locally removed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="LOCALLY_REMOVED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Switched" />
+          <option name="myStatusName" value="Switched" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="SWITCHED" />
+        </FILE-GROUP>
+      </UpdatedFiles>
+    </UpdateInfo>
   </component>
   <component name="RunManager">
     <configuration default="true" type="JavascriptDebugSession" factoryName="Local">
@@ -281,164 +425,40 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="87eb45c0-45ee-4e46-9bfe-541da756bff4" name="Default" comment="" />
-      <created>1351718981757</created>
-      <updated>1351718981757</updated>
+      <changelist id="905c14dc-6fcf-4b00-bcf6-9acd4d53a60a" name="Default" comment="" />
+      <created>1356202931312</created>
+      <updated>1356202931312</updated>
     </task>
-    <task id="LOCAL-00001" summary="Added an uncompressed version of the example desert TMX file.&#10;Added TileSet class that can retrieve external TSX files.">
-      <created>1351988860606</created>
-      <updated>1351988860606</updated>
+    <task id="LOCAL-00001" summary="Made the TMXjs source files more modular by using the ./ prefix.&#10;Added the initial files for the nodetest unit testing framework.&#10;Removed the tmx.js file because it's redundant.  Simply importing map.js does the same thing.&#10;Removed the dom-renderer skeleton.  This should be a different project.">
+      <created>1356299725764</created>
+      <updated>1356299725764</updated>
     </task>
-    <task id="LOCAL-00002" summary="Redesigned TileSet so that all jQuery-specific code is a fromXML static method.">
-      <created>1352440016062</created>
-      <updated>1352440016062</updated>
+    <task id="LOCAL-00002" summary="Added rectangle tests.&#10;Fixed bug in Rectangle class that didn't enforce top-left constraints.">
+      <created>1356303702237</created>
+      <updated>1356303702237</updated>
     </task>
-    <task id="LOCAL-00003" summary="Refactored TileSet and Tile classes into their own files (they can be combined later if needed).&#10;Added the Map class.">
-      <created>1355079261675</created>
-      <updated>1355079261675</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Bumped jQuery to 1.8.3.&#10;Maps can be built from XML and will find TileSets.">
-      <created>1355115595426</created>
-      <updated>1355115595426</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Started to add layer classes.">
-      <created>1355172610733</created>
-      <updated>1355172610733</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Added the TileLayer fromElement static method.">
-      <created>1355179610357</created>
-      <updated>1355179610357</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Fleshed out TileSet fromElement method more.">
-      <created>1355190990807</created>
-      <updated>1355190990807</updated>
-    </task>
-    <task id="LOCAL-00008" summary="TileLayers are now loaded.">
-      <created>1355438719421</created>
-      <updated>1355438719421</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Wrote primitive div-based renderer. Works!">
-      <created>1355463132225</created>
-      <updated>1355463132225</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Fixed an issue with the incorrect dataType being passed to $.get.">
-      <created>1355464444860</created>
-      <updated>1355464444860</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Updated README.">
-      <created>1355464593885</created>
-      <updated>1355464593885</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Separate util methods into separate files.&#10;Re-wrote DOM renderer so that it uses CSS classes instead of style attributes for as much as makes sense.">
-      <created>1355720744831</created>
-      <updated>1355720744831</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Added tile tests.">
-      <created>1356328113657</created>
-      <updated>1356328113657</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Removed the .idea project info.">
-      <created>1356328240936</created>
-      <updated>1356328240936</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Added more TileSet tests.&#10;Changed behaviour of TileSet addTile method: will now throw error if you try to add a tile with the id already set.">
-      <created>1356371027541</created>
-      <updated>1356371027541</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Added tile layer tests.">
-      <created>1356555794673</created>
-      <updated>1356555794673</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Added Doodad class (Object in TMX lingo).">
-      <created>1356556912445</created>
-      <updated>1356556912445</updated>
-    </task>
-    <task id="LOCAL-00018" summary="Added initial Doodad code.&#10;Moved Tile XML deserialization to that class to be consistent with the rest of the classes.">
-      <created>1356558644874</created>
-      <updated>1356558644874</updated>
-    </task>
-    <task id="LOCAL-00019" summary="Added framework for passing encoding and compression algorithms.">
-      <created>1356560077865</created>
-      <updated>1356560077865</updated>
-    </task>
-    <task id="LOCAL-00020" summary="Started to add framework for decoding and decompressing.">
-      <created>1356561919898</created>
-      <updated>1356561919898</updated>
-    </task>
-    <task id="LOCAL-00021" summary="Added support for base64 encoding.">
-      <created>1356675544317</created>
-      <updated>1356675544317</updated>
-    </task>
-    <task id="LOCAL-00022" summary="Added support for CSV encoding.">
-      <created>1356709937831</created>
-      <updated>1356709937831</updated>
-    </task>
-    <task id="LOCAL-00023" summary="Added base64 support to core.&#10;Added support for zlib compression.">
-      <created>1356824076418</created>
-      <updated>1356824076418</updated>
-    </task>
-    <task id="LOCAL-00024" summary="Added GZIP compression support.">
-      <created>1356825912883</created>
-      <updated>1356825912883</updated>
-    </task>
-    <task id="LOCAL-00025" summary="Forgot to include test map.">
-      <created>1356825931910</created>
-      <updated>1356825931910</updated>
-    </task>
-    <task id="LOCAL-00026" summary="Added rotation support.">
-      <created>1358822207341</created>
-      <updated>1358822207341</updated>
-    </task>
-    <task id="LOCAL-00027" summary="Styled test renderer a bit more.">
-      <created>1358825249497</created>
-      <updated>1358825249497</updated>
-    </task>
-    <task id="LOCAL-00028" summary="Replaced ArrayUtil.remove with Array#splice.&#10;Added orientation, tileWidth and tileHeight to Map constructor.&#10;Added insertLayerAt method.&#10;Added methods for getting TileLayer and DoodadGroup counts.&#10;Removed version property.&#10;Fixed inheritance bug in TileLayer and DoodadGroup.&#10;">
-      <created>1359305265064</created>
-      <updated>1359305265064</updated>
-    </task>
-    <option name="localTasksCounter" value="29" />
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
-  <component name="TodoView" selected-index="0">
-    <todo-panel id="selected-file">
-      <are-packages-shown value="false" />
-      <are-modules-shown value="false" />
-      <flatten-packages value="false" />
-      <is-autoscroll-to-source value="false" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="false" />
-      <are-modules-shown value="false" />
-      <flatten-packages value="false" />
-      <is-autoscroll-to-source value="false" />
-    </todo-panel>
-    <todo-panel id="default-changelist">
-      <are-packages-shown value="false" />
-      <are-modules-shown value="false" />
-      <flatten-packages value="false" />
-      <is-autoscroll-to-source value="false" />
-    </todo-panel>
-  </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="0" y="22" width="1280" height="774" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924107" sideWeight="0.49786553" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924107" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32870865" sideWeight="0.5859375" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32870865" sideWeight="0.40625" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25364667" sideWeight="0.6707504" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924107" sideWeight="0.49839914" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924107" sideWeight="0.49786553" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924962" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924107" sideWeight="0.49786553" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -449,7 +469,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
-    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_NEW_TODO" value="true" />
     <option name="myTodoPanelSettings">
       <value>
@@ -479,7 +499,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Replaced ArrayUtil.remove with Array#splice.&#10;Added orientation, tileWidth and tileHeight to Map constructor.&#10;Added insertLayerAt method.&#10;Added methods for getting TileLayer and DoodadGroup counts.&#10;Removed version property.&#10;Fixed inheritance bug in TileLayer and DoodadGroup.&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added rectangle tests.&#10;Fixed bug in Rectangle class that didn't enforce top-left constraints." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -492,140 +512,122 @@
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="Bumped jQuery to 1.8.3.&#10;Maps can be built from XML and will find TileSets." />
-    <MESSAGE value="Started to add layer classes." />
-    <MESSAGE value="Added the TileLayer fromElement static method." />
-    <MESSAGE value="Fleshed out TileSet fromElement method more." />
-    <MESSAGE value="TileLayers are now loaded." />
-    <MESSAGE value="Wrote primitive div-based renderer. Works!" />
-    <MESSAGE value="Fixed an issue with the incorrect dataType being passed to $.get." />
-    <MESSAGE value="Updated README." />
-    <MESSAGE value="Separate util methods into separate files.&#10;Re-wrote DOM renderer so that it uses CSS classes instead of style attributes for as much as makes sense." />
-    <MESSAGE value="Added tile tests." />
-    <MESSAGE value="Removed the .idea project info." />
-    <MESSAGE value="Added more TileSet tests.&#10;Changed behaviour of TileSet addTile method: will now throw error if you try to add a tile with the id already set." />
-    <MESSAGE value="Added tile layer tests." />
-    <MESSAGE value="Added Doodad class (Object in TMX lingo)." />
-    <MESSAGE value="Added initial Doodad code.&#10;Moved Tile XML deserialization to that class to be consistent with the rest of the classes." />
-    <MESSAGE value="Added framework for passing encoding and compression algorithms." />
-    <MESSAGE value="Started to add framework for decoding and decompressing." />
-    <MESSAGE value="Added support for base64 encoding." />
-    <MESSAGE value="Added support for CSV encoding." />
-    <MESSAGE value="Added base64 support to core.&#10;Added support for zlib compression." />
-    <MESSAGE value="Added GZIP compression support." />
-    <MESSAGE value="Forgot to include test map." />
-    <MESSAGE value="Added rotation support." />
-    <MESSAGE value="Styled test renderer a bit more." />
-    <MESSAGE value="Replaced ArrayUtil.remove with Array#splice.&#10;Added orientation, tileWidth and tileHeight to Map constructor.&#10;Added insertLayerAt method.&#10;Added methods for getting TileLayer and DoodadGroup counts.&#10;Removed version property.&#10;Fixed inheritance bug in TileLayer and DoodadGroup.&#10;" />
+    <MESSAGE value="Made the TMXjs source files more modular by using the ./ prefix.&#10;Added the initial files for the nodetest unit testing framework.&#10;Removed the tmx.js file because it's redundant.  Simply importing map.js does the same thing.&#10;Removed the dom-renderer skeleton.  This should be a different project." />
+    <MESSAGE value="Added rectangle tests.&#10;Fixed bug in Rectangle class that didn't enforce top-left constraints." />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <option name="time" value="4" />
-    </breakpoint-manager>
+    <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/test/tile-layer.js">
+    <entry file="file://$PROJECT_DIR$/test/util/rectangle.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="10" selection-start="1733" selection-end="1733" vertical-scroll-proportion="0.5694604">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/tile-set.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="54" selection-start="926" selection-end="926" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/desert_rotated.tmx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="24" selection-start="1088" selection-end="1098" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cell.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="75" selection-start="779" selection-end="779" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="47" selection-start="274" selection-end="274" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/gunzip.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/inflate.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="33" selection-start="240" selection-end="260" vertical-scroll-proportion="-5.625" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="28" selection-start="207" selection-end="207" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/map.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavascriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/ECMAScript.js2">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="126" column="25" selection-start="5599" selection-end="5599" vertical-scroll-proportion="0.33295062">
+        <state line="39" column="9" selection-start="1616" selection-end="1616" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/util/rectangle.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="56" selection-start="648" selection-end="648" vertical-scroll-proportion="0.0">
+        <state line="12" column="25" selection-start="370" selection-end="370" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/doodad-group.js">
+    <entry file="file://$PROJECT_DIR$/test/nodeunit.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="36" selection-start="463" selection-end="463" vertical-scroll-proportion="0.0">
-          <folding />
+        <state line="430" column="46" selection-start="15022" selection-end="15028" vertical-scroll-proportion="0.3321976">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <marker date="1356298034000" expanded="false" signature="60780:60793" placeholder="..." />
+          </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="30" selection-start="60" selection-end="60" vertical-scroll-proportion="-1.875" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/layer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="29" selection-start="379" selection-end="379" vertical-scroll-proportion="0.0">
+        <state line="0" column="21" selection-start="21" selection-end="21" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tile-set.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="21" selection-start="21" selection-end="21" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="9" selection-start="355" selection-end="355" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="28" selection-start="940" selection-end="940" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="6" selection-start="381" selection-end="381" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="16" selection-start="485" selection-end="485" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/rectangle.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="25" selection-start="357" selection-end="357" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/util/rectangle.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="9" selection-start="1616" selection-end="1616" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/tile-layer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="31" selection-start="284" selection-end="284" vertical-scroll-proportion="0.0">
+        <state line="0" column="8" selection-start="8" selection-end="8" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="25" selection-start="1015" selection-end="1015" vertical-scroll-proportion="0.36165327">
+        <state line="0" column="8" selection-start="8" selection-end="8" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/map.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="83" selection-start="572" selection-end="572" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/tile-layer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="79" selection-start="529" selection-end="529" vertical-scroll-proportion="0.4718543">
           <folding />
         </state>
       </provider>
