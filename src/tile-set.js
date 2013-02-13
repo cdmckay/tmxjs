@@ -1,10 +1,10 @@
-define(["jquery", "./tile"], function ($, Tile) {
+define(["jquery", "./tile", "./util/string-util"], function ($, Tile, S) {
     var TileSet = function (firstGlobalId) {
         this.firstGlobalId = firstGlobalId || 1;
         this.dir = null;
         this.name = null;
         this.tileInfo = { w: 0, h: 0, spacing: 0, margin: 0 };
-        this.imageInfo = { url: null, w: 0, h: 0 };
+        this.imageInfo = { source: null, url: null, w: 0, h: 0 };
         this.tiles = [];
         this.properties = {};
     };
@@ -31,7 +31,25 @@ define(["jquery", "./tile"], function ($, Tile) {
         return this.tiles.length - 1;
     };
 
-    TileSet.fromElement = function (element, map, options) {
+    TileSet.prototype.generateTiles = function () {
+        this.tiles.length = 0;
+
+        var tileInfo = this.tileInfo;
+        var imageInfo = this.imageInfo;
+        for (var j = tileInfo.margin; j < imageInfo.h; j += tileInfo.h + tileInfo.spacing) {
+            for (var i = tileInfo.margin; i < imageInfo.w; i += tileInfo.w + tileInfo.spacing) {
+                var tile = new Tile();
+                tile.imageInfo = imageInfo;
+                tile.bounds.x = i;
+                tile.bounds.y = j;
+                tile.bounds.w = tileInfo.w;
+                tile.bounds.h = tileInfo.h;
+                this.addTile(tile);
+            } // end for
+        } // end for
+    };
+
+    TileSet.fromElement = function (element, options) {
         var tileSetElement = $(element);
         var firstGlobalId = parseInt(tileSetElement.attr("firstgid"));
         var tileSet = new TileSet(firstGlobalId);
@@ -40,43 +58,35 @@ define(["jquery", "./tile"], function ($, Tile) {
         var extract = function (e) {
             tileSet.name = e.attr("name");
 
-            var tileInfo = {
-                w: parseInt(e.attr("tilewidth")) || (map && map.tileInfo.w),
-                h: parseInt(e.attr("tileheight")) || (map && map.tileInfo.h),
+            tileSet.tileInfo = {
+                w: parseInt(e.attr("tilewidth")) || 1,
+                h: parseInt(e.attr("tileheight")) || 1,
                 spacing: parseInt(e.attr("spacing")),
                 margin: parseInt(e.attr("margin"))
             };
-            tileSet.tileInfo = tileInfo;
 
             var image = e.children("image:first");
-            if (image.attr("source")) {
-                var imageInfo = {
-                    url: options.dir + "/" + image.attr("source"),
-                    w: parseInt(image.attr("width")) || 0,
-                    h: parseInt(image.attr("height")) || 0
-                };
-                tileSet.imageInfo = imageInfo;
-
-                for (var j = tileInfo.margin; j < imageInfo.h; j += tileInfo.h + tileInfo.spacing) {
-                    for (var i = tileInfo.margin; i < imageInfo.w; i += tileInfo.w + tileInfo.spacing) {
-                        var tile = new Tile();
-                        tile.imageInfo = imageInfo;
-                        tile.bounds.x = i;
-                        tile.bounds.y = j;
-                        tile.bounds.w = tileInfo.w;
-                        tile.bounds.h = tileInfo.h;
-                        tileSet.addTile(tile);
-                    }
-                }
+            var imageSource = image.attr("source");
+            if (!imageSource) {
+                throw new Error("'image' requires 'source' attribute");
             }
+            tileSet.imageInfo = {
+                source: imageSource,
+                url: (S.startsWith(imageSource, "http") ? "" : options.dir + "/") + imageSource,
+                w: parseInt(image.attr("width")) || 0,
+                h: parseInt(image.attr("height")) || 0
+            };
+
+            tileSet.generateTiles();
 
             e.children("tiles").each(function () {
                 var tile = Tile.fromElement(this, options);
-                if (tile.id > tileSet.getMaxTileId()) {
+                if (tile.id < 0) {
+                    throw new Error("Invalid (negative) tile id: " + tile.id);
+                } else if (tile.id === tileSet.tiles.length) {
                     tileSet.addTile(tile);
                 } else {
-                    var existingTile = tileSet.getTileAt(tile.id);
-                    existingTile.properties = tile.properties;
+                    throw new Error("Invalid (non-consecutive) tile id: " + tile.id);
                 }
             });
         };
@@ -84,7 +94,7 @@ define(["jquery", "./tile"], function ($, Tile) {
         tileSet.source = tileSetElement.attr("source");
         var promise = $.Deferred();
         if (tileSet.source) {
-            $.get(options.dir + "/" + tileSet.source, {}, null, "xml")
+            $.get((S.startsWith(tileSet.source, "http") ? "" : options.dir + "/") + tileSet.source, {}, null, "xml")
                 .done(function (data) {
                     var external = $(data).find("tileset");
                     extract(external);

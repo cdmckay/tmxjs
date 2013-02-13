@@ -12,26 +12,25 @@ define([
     Rectangle
 ) {
     var tests = {
-        "test constructor with map argument": function (test) {
-            var w = 1, h = 2;
-            var map = new Map(w, h);
-            var tileLayer = new TileLayer(map);
-            test.equal(tileLayer.bounds.w, map.bounds.w, "Should match map width");
-            test.equal(tileLayer.bounds.h, map.bounds.h, "Should match map height");
+        "test constructor with name argument": function (test) {
+            var name = "test";
+            var tileLayer = new TileLayer(name);
+            test.equal(tileLayer.name, name, "Should match name");
             test.done();
         },
 
-        "test constructor with map and width and height arguments": function (test) {
-            var w = 1, h = 2, bounds = Rectangle.atOrigin(4, 8);
-            var map = new Map(w, h);
-            var tileLayer = new TileLayer(map, bounds);
+        "test constructor with name and bounds arguments": function (test) {
+            var name = "test";
+            var bounds = Rectangle.atOrigin(4, 8);
+            var tileLayer = new TileLayer(name, bounds);
+            test.equal(tileLayer.name, name, "Should match name");
             test.equal(tileLayer.bounds.w, bounds.w, "Should match passed bounds width");
             test.equal(tileLayer.bounds.h, bounds.h, "Should match passed bounds height");
             test.done();
         },
 
         "test setCellAt": function (test) {
-            var cell = new Cell;
+            var cell = new Cell();
             var tileLayer = new TileLayer(null, Rectangle.atOrigin(32, 32));
             tileLayer.setCellAt(1, 2, cell);
             test.equal(tileLayer.getCellAt(1, 2), cell, "The tile at 1,2 should be set");
@@ -39,7 +38,7 @@ define([
         },
 
         "test setCellAt when out of bounds": function (test) {
-            var cell = new Cell;
+            var cell = new Cell();
             var tileLayer = new TileLayer(null, Rectangle.atOrigin(32, 32));
             tileLayer.setCellAt(40, 40, cell);
             test.equal(tileLayer.getCellAt(40, 40), null, "The tile at 40,40 should not be set");
@@ -47,8 +46,8 @@ define([
         },
 
         "test rotate by 90 degrees": function (test) {
-            var cell1 = new Cell;
-            var cell2 = new Cell;
+            var cell1 = new Cell();
+            var cell2 = new Cell();
             var tileLayer = new TileLayer(null, Rectangle.atOrigin(16, 32));
             tileLayer.setCellAt(1, 1, cell1);
             tileLayer.setCellAt(4, 4, cell2);

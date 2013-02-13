@@ -16,7 +16,7 @@ define([
         this.cells = new Array(this.bounds.w * this.bounds.h);
         this.tileProperties = {};
     };
-    TileLayer.prototype = new Layer;
+    TileLayer.prototype = new Layer();
     TileLayer.prototype.constructor = TileLayer;
 
     TileLayer.prototype.rotate = function (angle) {
@@ -114,8 +114,13 @@ define([
 
     TileLayer.fromElement = function (element, map, options) {
         var layerElement = $(element);
-        var tileLayer = new TileLayer(map);
+        var tileLayer = new TileLayer();
         tileLayer.name = layerElement.attr("name");
+        tileLayer.bounds = new Rectangle(
+            0, 0,
+            parseInt(layerElement.attr("width")),
+            parseInt(layerElement.attr("height"))
+        );
         tileLayer.visible = !!layerElement.attr("visible");
         tileLayer.opacity = parseFloat(layerElement.attr("opacity")) || 0.0;
 

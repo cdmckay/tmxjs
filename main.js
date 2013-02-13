@@ -1,10 +1,10 @@
 require.config({
     paths: {
-        gunzip: "lib/gunzip.min",
-        inflate: "lib/inflate.min",
         jquery: "lib/jquery",
+        underscore: "lib/underscore",
         tmxjs: "src",
-        underscore: "lib/underscore"
+        gunzip: "lib/gunzip.min",
+        inflate: "lib/inflate.min"
     },
     shim: {
         gunzip: { exports: "Zlib.Gunzip" },
@@ -24,7 +24,7 @@ require([
     Inflate,
     $,
     Map,
-    StringUtil
+    S
 ) {
     var url = "examples/desert.tmx";
     var options = {
@@ -61,7 +61,7 @@ require([
                         var j = Math.floor(tn / layer.bounds.w);
                         var tileSet = map.findTileSet(cell.tile.getGlobalId());
 
-                        var flippedClass = StringUtil.format("flipped-{0}-{1}-{2}",
+                        var flippedClass = S.format("flipped-{0}-{1}-{2}",
                             +cell.flipped.horizontally,
                             +cell.flipped.vertically,
                             +cell.flipped.antidiagonally);
@@ -78,7 +78,7 @@ require([
                             format = [
                                 "background-image: url({0});"
                             ].join("/");
-                            ruleSet = StringUtil.format(format, cell.tile.imageInfo.url);
+                            ruleSet = S.format(format, cell.tile.imageInfo.url);
                             ruleSets["tile-set-" + tileSet.firstGlobalId] = ruleSet;
                         }
                         if (!ruleSets["tile-" + cell.tile.getGlobalId()]) {
@@ -88,9 +88,9 @@ require([
                                 "background-repeat: no-repeat;",
                                 "background-position: {2}px {3}px;"
                             ].join(" ");
-                            ruleSet = StringUtil.format(format,
-                                cell.tile.bounds.w,
-                                cell.tile.bounds.h,
+                            ruleSet = S.format(format,
+                                +cell.tile.bounds.w,
+                                +cell.tile.bounds.h,
                                 -cell.tile.bounds.x,
                                 -cell.tile.bounds.y
                             );
@@ -112,8 +112,8 @@ require([
                                 m[1] = -m[1];
                                 m[3] = -m[3];
                             }
-                            var matrix = StringUtil.format("matrix({0}, {1}, {2}, {3}, 0, 0)", m[0], m[1], m[2], m[3]);
-                            var dxMatrix =  StringUtil.format(
+                            var matrix = S.format("matrix({0}, {1}, {2}, {3}, 0, 0)", m[0], m[1], m[2], m[3]);
+                            var dxMatrix =  S.format(
                                 "progid:DXImageTransform.Microsoft.Matrix(M11={0},M12={1},M21={2},M22={3},sizingMethod='auto expand')",
                                 m[0], m[1], m[2], m[3]
                             );
@@ -131,7 +131,7 @@ require([
                         $("<div>", {
                             'id': 'tile-' + tn,
                             'class': classes.join(" "),
-                            'style': StringUtil.format("left: {0}px; top: {1}px;",
+                            'style': S.format("left: {0}px; top: {1}px;",
                                 i * cell.tile.bounds.w,
                                 j * cell.tile.bounds.h
                             )
@@ -143,7 +143,7 @@ require([
                 // Create the CSS classes.
                 var styleSheet = [ ".tile { position: absolute; }" ];
                 $.each(ruleSets, function (key, value) {
-                    styleSheet.push(StringUtil.format(".{0} { {1} }", key, value));
+                    styleSheet.push(S.format(".{0} { {1} }", key, value));
                 });
                 var style = $("<style>", { type: 'text/css' })
                     .html(styleSheet.join("\n"))

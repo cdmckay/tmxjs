@@ -1,10 +1,12 @@
 define([
     "jquery",
+    "underscore",
     "./tile-layer",
     "./tile-set",
     "./util/rectangle"
 ], function (
     $,
+    _,
     TileLayer,
     TileSet,
     Rectangle
@@ -103,11 +105,17 @@ define([
         $.each(this.tileSets, function () {
             if (this.firstGlobalId <= globalId) {
                 target = this;
-                return false;
             }
-            return true;
         });
         return target;
+    };
+
+    Map.prototype.getMaxGlobalId = function () {
+        if (!this.tileSets.length) {
+            return 1;
+        }
+        var tileSet = this.tileSets[this.tileSets.length - 1];
+        return tileSet.firstGlobalId + tileSet.tiles.length - 1;
     };
 
     Map.prototype.swapTileSets = function(index1, index2) {
@@ -141,12 +149,12 @@ define([
         // Load tile sets.
         var tileSetPromises = [];
         root.find("tileset").each(function () {
-            tileSetPromises.push(TileSet.fromElement(this, map, options).done(function (tileSet) {
+            tileSetPromises.push(TileSet.fromElement(this, options).done(function (tileSet) {
                 map.addTileSet(tileSet);
             }));
         });
 
-        var promise = $.Deferred();
+        var deferred = $.Deferred();
         $.when.apply($, tileSetPromises)
             .done(function () {
                 // Load tile layers.
@@ -157,12 +165,12 @@ define([
                 // Load doodad groups.
                 // TODO Finish this.
 
-                promise.resolve(map);
+                deferred.resolve(map);
             })
             .fail(function () {
-                promise.reject();
+                deferred.reject();
             });
-        return promise;
+        return deferred.promise();
     };
 
     return Map;
