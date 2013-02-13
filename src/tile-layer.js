@@ -87,7 +87,7 @@ define([
     };
 
     TileLayer.prototype.removeTile = function (tile) {
-        for (var n = 0; n < this.tiles.length; n++) {
+        for (var n = 0; n < this.cells.length; n++) {
             if (this.cells[n] && this.cells[n].tile === tile) {
                 this.cells[n] = null;
             }
