@@ -110,6 +110,11 @@ define([
         return target;
     };
 
+    Map.prototype.findTile = function (globalId) {
+        var tileSet = this.findTileSet(globalId);
+        return tileSet.tiles[globalId - tileSet.firstGlobalId];
+    };
+
     Map.prototype.getMaxGlobalId = function () {
         if (!this.tileSets.length) {
             return 0;
