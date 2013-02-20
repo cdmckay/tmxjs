@@ -6,6 +6,7 @@
       <w>decompressor</w>
       <w>firstgid</w>
       <w>gunzip</w>
+      <w>keypress</w>
       <w>nodeunit</w>
       <w>tileheight</w>
       <w>tilewidth</w>

@@ -13,11 +13,20 @@ define([
 ) {
     var TileLayer = function(name, bounds) {
         Layer.call(this, name, bounds);
+        this.format = TileLayer.Format.XML;
         this.cells = new Array(this.bounds.w * this.bounds.h);
         this.tileProperties = {};
     };
     TileLayer.prototype = new Layer();
     TileLayer.prototype.constructor = TileLayer;
+
+    TileLayer.Format = {
+        XML: "xml",
+        BASE64: "base64",
+        BASE64_GZIP: "base64gzip",
+        BASE64_ZLIB: "base64zlib",
+        CSV: "csv"
+    };
 
     TileLayer.prototype.rotate = function (angle) {
         var newBounds;
@@ -136,6 +145,7 @@ define([
                     if (!options.compression[compression] || !options.compression[compression].decompress) {
                         throw new Error("Could not find decompressor for compression: " + compression);
                     }
+                    tileLayer.format += compression;
                     decompress = options.compression[compression].decompress;
                 }
                 var flippedGlobalIds = [];
@@ -161,6 +171,7 @@ define([
             var flippedGlobalIds = [];
             var encoding = $(this).attr("encoding");
             if (encoding) {
+                tileLayer.format = encoding;
                 switch (encoding) {
                     case "base64":
                         flippedGlobalIds = handleBase64.call(this, options);

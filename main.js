@@ -3,24 +3,32 @@ require.config({
         jquery: "lib/jquery",
         underscore: "lib/underscore",
         tmxjs: "src",
+        gzip: "lib/gzip.min",
         gunzip: "lib/gunzip.min",
+        deflate: "lib/deflate.min",
         inflate: "lib/inflate.min"
     },
     shim: {
+        gzip: { exports: "Zlib.Gzip" },
         gunzip: { exports: "Zlib.Gunzip" },
+        deflate: { exports: "Zlib.Deflate" },
         inflate: { exports: "Zlib.Inflate" },
         underscore: { exports: "_" }
     }
 });
 
 require([
+    "gzip",
     "gunzip",
+    "deflate",
     "inflate",
     "jquery",
     "tmxjs/map",
     "tmxjs/util/string-util"
 ], function (
+    Gzip,
     Gunzip,
+    Deflate,
     Inflate,
     $,
     Map,
@@ -31,9 +39,11 @@ require([
         dir: url.split("/").slice(0, -1) || ".",
         compression: {
             gzip: {
+                compress: function (bytes) { return new Gzip(bytes).compress(); },
                 decompress: function (bytes) { return new Gunzip(bytes).decompress(); }
             },
             zlib: {
+                compress: function (bytes) { return new Deflate(bytes).compress(); },
                 decompress: function (bytes) { return new Inflate(bytes).decompress(); }
             }
         }
@@ -42,10 +52,18 @@ require([
     $.get(url, {}, null, "xml")
         .done(function (xml) {
             Map.fromXML(xml, options).done(function (map) {
+                // Export to XML when "x" key pressed.
+                $(document).on("keypress", function (event) {
+                    if (String.fromCharCode(event.which) === "x") {
+                        // map.toXML();
+                    }
+                });
+
                 console.log(map);
                 $.each(map.tileSets, function () {
                     console.log(this);
                 });
+
                 var canvas = $("#map").css({
                     width: map.bounds.w * map.tileInfo.w,
                     height: map.bounds.h * map.tileInfo.h
@@ -53,9 +71,7 @@ require([
                 var ruleSets = {};
                 $.each(map.layers, function (ln, layer) {
                     $.each(layer.cells, function (tn, cell) {
-                        if (cell == null) {
-                            return true;
-                        }
+                        if (!cell) return true;
 
                         var i = tn % layer.bounds.w;
                         var j = Math.floor(tn / layer.bounds.w);

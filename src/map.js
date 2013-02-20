@@ -14,7 +14,7 @@ define([
     var Map = function (orientation, width, height, tileWidth, tileHeight) {
         this.version = null;
         this.bounds = Rectangle.atOrigin(width, height);
-        this.orientation = orientation || "orthogonal";
+        this.orientation = orientation || Map.Orientation.ORTHOGONAL;
         this.tileInfo = {
             w: tileWidth || 0,
             h: tileHeight || 0
@@ -22,6 +22,11 @@ define([
         this.layers = [];
         this.tileSets = [];
         this.properties = {};
+    };
+
+    Map.Orientation = {
+        ORTHOGONAL: "orthogonal",
+        ISOMETRIC: "isometric"
     };
 
     Map.prototype.fitBoundsToLayers = function() {
