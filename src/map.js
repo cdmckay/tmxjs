@@ -3,13 +3,15 @@ define([
     "underscore",
     "./tile-layer",
     "./tile-set",
-    "./util/rectangle"
+    "./util/rectangle",
+    "./util/util"
 ], function (
     $,
     _,
     TileLayer,
     TileSet,
-    Rectangle
+    Rectangle,
+    U
 ) {
     var Map = function (orientation, width, height, tileWidth, tileHeight) {
         this.version = null;
@@ -26,7 +28,8 @@ define([
 
     Map.Orientation = {
         ORTHOGONAL: "orthogonal",
-        ISOMETRIC: "isometric"
+        ISOMETRIC: "isometric",
+        STAGGERED: "staggered"
     };
 
     Map.prototype.fitBoundsToLayers = function() {
@@ -133,7 +136,26 @@ define([
     };
 
     Map.prototype.toXML = function (options) {
-
+        var xml = $.parseXML('<?xml version="1.0" encoding="UTF-8"?><map/>')
+        var mapEl = $(xml).find("map");
+        mapEl.attr({
+            orientation: this.orientation,
+            width: this.bounds.w,
+            height: this.bounds.h,
+            tilewidth: this.tileInfo.w,
+            tileheight: this.tileInfo.h
+        });
+        if (U.size(this.properties)) {
+            var propertiesEl = $("<properties>");
+            $.each(this.properties, function (k, v) {
+                $("<property>", { name: k, value: v }).appendTo(propertiesEl);
+            });
+            mapEl.append(propertiesEl);
+        }
+        // TODO Export TileSets.
+        // TODO Export TileLayers.
+        // TODO Export DoodadGroups.
+        return xml;
     };
 
     Map.fromXML = function (xml, options) {
@@ -142,23 +164,23 @@ define([
             compression: {}
         }, options);
 
-        var root = $(xml).find("map");
+        var mapEl = $(xml).find("map");
         var map = new Map(
-            root.attr("orientation"),
-            parseInt(root.attr("width")),
-            parseInt(root.attr("height")),
-            parseInt(root.attr("tilewidth")),
-            parseInt(root.attr("tileheight"))
+            mapEl.attr("orientation"),
+            parseInt(mapEl.attr("width")),
+            parseInt(mapEl.attr("height")),
+            parseInt(mapEl.attr("tilewidth")),
+            parseInt(mapEl.attr("tileheight"))
         );
 
         // Load properties.
-        root.find("properties:first property").each(function () {
+        mapEl.find("properties:first property").each(function () {
             map.properties[$(this).attr("name")] = $(this).attr("value");
         });
 
         // Load tile sets.
         var tileSetPromises = [];
-        root.find("tileset").each(function () {
+        mapEl.find("tileset").each(function () {
             tileSetPromises.push(TileSet.fromElement(this, options).done(function (tileSet) {
                 map.addTileSet(tileSet);
             }));
@@ -168,7 +190,7 @@ define([
         $.when.apply($, tileSetPromises)
             .done(function () {
                 // Load tile layers.
-                root.find("layer").each(function() {
+                mapEl.find("layer").each(function() {
                     map.addLayer(TileLayer.fromElement(this, map, options));
                 });
 

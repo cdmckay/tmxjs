@@ -24,7 +24,7 @@ require([
     "inflate",
     "jquery",
     "tmxjs/map",
-    "tmxjs/util/string-util"
+    "tmxjs/util/util"
 ], function (
     Gzip,
     Gunzip,
@@ -32,9 +32,9 @@ require([
     Inflate,
     $,
     Map,
-    S
+    U
 ) {
-    var url = "examples/desert.tmx";
+    var url = "examples/desert_export.tmx";
     var options = {
         dir: url.split("/").slice(0, -1) || ".",
         compression: {
@@ -55,7 +55,9 @@ require([
                 // Export to XML when "x" key pressed.
                 $(document).on("keypress", function (event) {
                     if (String.fromCharCode(event.which) === "x") {
-                        // map.toXML();
+                        var xml = map.toXML(options);
+                        var xmlString = xml.xml || new XMLSerializer().serializeToString(xml);
+                        console.log(xml)
                     }
                 });
 
@@ -77,7 +79,7 @@ require([
                         var j = Math.floor(tn / layer.bounds.w);
                         var tileSet = map.findTileSet(cell.tile.getGlobalId());
 
-                        var flippedClass = S.format("flipped-{0}-{1}-{2}",
+                        var flippedClass = U.format("flipped-{0}-{1}-{2}",
                             +cell.flipped.horizontally,
                             +cell.flipped.vertically,
                             +cell.flipped.antidiagonally);
@@ -94,7 +96,7 @@ require([
                             format = [
                                 "background-image: url({0});"
                             ].join("/");
-                            ruleSet = S.format(format, cell.tile.imageInfo.url);
+                            ruleSet = U.format(format, cell.tile.imageInfo.url);
                             ruleSets["tile-set-" + tileSet.firstGlobalId] = ruleSet;
                         }
                         if (!ruleSets["tile-" + cell.tile.getGlobalId()]) {
@@ -104,7 +106,7 @@ require([
                                 "background-repeat: no-repeat;",
                                 "background-position: {2}px {3}px;"
                             ].join(" ");
-                            ruleSet = S.format(format,
+                            ruleSet = U.format(format,
                                 +cell.tile.bounds.w,
                                 +cell.tile.bounds.h,
                                 -cell.tile.bounds.x,
@@ -128,8 +130,8 @@ require([
                                 m[1] = -m[1];
                                 m[3] = -m[3];
                             }
-                            var matrix = S.format("matrix({0}, {1}, {2}, {3}, 0, 0)", m[0], m[1], m[2], m[3]);
-                            var dxMatrix =  S.format(
+                            var matrix = U.format("matrix({0}, {1}, {2}, {3}, 0, 0)", m[0], m[1], m[2], m[3]);
+                            var dxMatrix =  U.format(
                                 "progid:DXImageTransform.Microsoft.Matrix(M11={0},M12={1},M21={2},M22={3},sizingMethod='auto expand')",
                                 m[0], m[1], m[2], m[3]
                             );
@@ -147,7 +149,7 @@ require([
                         $("<div>", {
                             'id': 'tile-' + tn,
                             'class': classes.join(" "),
-                            'style': S.format("left: {0}px; top: {1}px;",
+                            'style': U.format("left: {0}px; top: {1}px;",
                                 i * cell.tile.bounds.w,
                                 j * cell.tile.bounds.h
                             )
@@ -159,7 +161,7 @@ require([
                 // Create the CSS classes.
                 var styleSheet = [ ".tile { position: absolute; }" ];
                 $.each(ruleSets, function (key, value) {
-                    styleSheet.push(S.format(".{0} { {1} }", key, value));
+                    styleSheet.push(U.format(".{0} { {1} }", key, value));
                 });
                 var style = $("<style>", { type: 'text/css' })
                     .html(styleSheet.join("\n"))

@@ -1,4 +1,4 @@
-define(["jquery", "./tile", "./util/string-util"], function ($, Tile, S) {
+define(["jquery", "./tile", "./util/util"], function ($, Tile, U) {
     var TileSet = function (firstGlobalId) {
         this.firstGlobalId = firstGlobalId || 1;
         this.dir = null;
@@ -72,7 +72,7 @@ define(["jquery", "./tile", "./util/string-util"], function ($, Tile, S) {
             }
             tileSet.imageInfo = {
                 source: imageSource,
-                url: (S.startsWith(imageSource, "http") ? "" : options.dir + "/") + imageSource,
+                url: (U.startsWith(imageSource, "http") ? "" : options.dir + "/") + imageSource,
                 w: parseInt(image.attr("width")) || 0,
                 h: parseInt(image.attr("height")) || 0
             };
@@ -94,7 +94,7 @@ define(["jquery", "./tile", "./util/string-util"], function ($, Tile, S) {
         tileSet.source = tileSetElement.attr("source");
         var promise = $.Deferred();
         if (tileSet.source) {
-            $.get((S.startsWith(tileSet.source, "http") ? "" : options.dir + "/") + tileSet.source, {}, null, "xml")
+            $.get((U.startsWith(tileSet.source, "http") ? "" : options.dir + "/") + tileSet.source, {}, null, "xml")
                 .done(function (data) {
                     var external = $(data).find("tileset");
                     extract(external);
