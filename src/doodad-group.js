@@ -46,6 +46,10 @@ define(["jquery", "./layer", "./util/rectangle"], function ($, Layer, Rectangle)
         return layer;
     };
 
+    DoodadGroup.prototype.toXML = function (xml, options) {
+
+    };
+
     DoodadGroup.fromElement = function (element, options) {
 
     };

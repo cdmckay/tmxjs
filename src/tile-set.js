@@ -1,7 +1,6 @@
 define(["jquery", "./tile", "./util/util"], function ($, Tile, U) {
     var TileSet = function (firstGlobalId) {
         this.firstGlobalId = firstGlobalId || 1;
-        this.dir = null;
         this.name = null;
         this.tileInfo = { w: 0, h: 0, spacing: 0, margin: 0 };
         this.imageInfo = { source: null, w: 0, h: 0 };
@@ -96,7 +95,6 @@ define(["jquery", "./tile", "./util/util"], function ($, Tile, U) {
         var tileSetElement = $(element);
         var firstGlobalId = parseInt(tileSetElement.attr("firstgid"));
         var tileSet = new TileSet(firstGlobalId);
-        tileSet.dir = options.dir;
 
         var extract = function (e) {
             tileSet.name = e.attr("name");

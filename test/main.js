@@ -5,7 +5,8 @@ require.config({
         tmxjs: "../src"
     },
     shim: {
-        nodeunit: { exports: "nodeunit" }
+        nodeunit: { exports: "nodeunit" },
+        underscore: { exports: "_" }
     }
 });
 
@@ -15,6 +16,7 @@ require([
     "tile",
     "tile-layer",
     "tile-set",
+    "util/base64",
     "util/rectangle"
 ], function (
     nodeunit,
@@ -22,6 +24,7 @@ require([
     tile,
     tileLayer,
     tileSet,
+    base64,
     rectangle
 ) {
     nodeunit.run({
@@ -29,6 +32,7 @@ require([
         tile: tile,
         tileLayer: tileLayer,
         tileSet: tileSet,
+        base64: base64,
         rectangle: rectangle
     });
 });

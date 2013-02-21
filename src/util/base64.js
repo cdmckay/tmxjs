@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, Daniel Guerrero
+ * "decode" is Copyright (c) 2011, Daniel Guerrero
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -22,9 +22,10 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 define(function () {
+    var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
+
     return {
         decode: function (str) {
-            var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
             var last1 = alphabet.indexOf(str.charAt(str.length - 1));
             var last2 = alphabet.indexOf(str.charAt(str.length - 2));
 
@@ -57,6 +58,38 @@ define(function () {
             }
 
             return bytes;
+        },
+        encode: function (bytes) {
+            var str = "";
+            var chr1, chr2, chr3;
+            var enc1, enc2, enc3, enc4;
+            var i = 0;
+            var j = 0;
+
+            for (i = 0; i < bytes.length; i += 3) {
+                chr1 = bytes[j++];
+                chr2 = bytes[j++];
+                chr3 = bytes[j++];
+
+                enc1 = chr1 >> 2;
+                enc2 = ((chr1 & 3) << 4) | (chr2 >> 4);
+                enc3 = ((chr2 & 15) << 2) | (chr3 >> 6);
+                enc4 = chr3 & 63;
+
+                if (isNaN(chr2)) {
+                    enc3 = 64;
+                    enc4 = 64;
+                } else if (isNaN(chr3)) {
+                    enc4 = 64;
+                }
+
+                str += alphabet.charAt(enc1);
+                str += alphabet.charAt(enc2);
+                str += alphabet.charAt(enc3);
+                str += alphabet.charAt(enc4);
+            }
+
+            return str;
         }
     }
 });

@@ -9,11 +9,11 @@ require.config({
         inflate: "lib/inflate.min"
     },
     shim: {
+        underscore: { exports: "_" },
         gzip: { exports: "Zlib.Gzip" },
         gunzip: { exports: "Zlib.Gunzip" },
         deflate: { exports: "Zlib.Deflate" },
-        inflate: { exports: "Zlib.Inflate" },
-        underscore: { exports: "_" }
+        inflate: { exports: "Zlib.Inflate" }
     }
 });
 

@@ -3,13 +3,15 @@ define([
     "./cell",
     "./layer",
     "./util/base64",
-    "./util/rectangle"
+    "./util/rectangle",
+    "./util/util"
 ], function (
     $,
     Cell,
     Layer,
     Base64,
-    Rectangle
+    Rectangle,
+    U
 ) {
     var TileLayer = function(name, bounds) {
         Layer.call(this, name, bounds);
@@ -119,6 +121,54 @@ define([
         layer.tileProperties = $.extend({}, this.tileProperties);
 
         return layer;
+    };
+
+    TileLayer.prototype.toXML = function (xml, options) {
+        var tileLayerEl = $("<layer>", xml).attr({
+            name: this.name,
+            width: this.bounds.w,
+            height: this.bounds.h
+        });
+
+        // Properties
+        if (U.size(this.properties)) {
+            var propertiesEl = $("<properties>", xml);
+            $.each(this.properties, function (k, v) {
+                var propertyEl = $("<property>", xml).attr({ name: k, value: v });
+                propertiesEl.append(propertyEl);
+            });
+            tileLayerEl.append(propertiesEl);
+        }
+
+        // Data
+        var compression, encoding;
+        switch (this.format) {
+            case TileLayer.Format.XML:
+                break;
+            case TileLayer.Format.BASE64:
+                encoding = "base64";
+                break;
+            case TileLayer.Format.BASE64_GZIP:
+                encoding = "base64";
+                compression = "gzip";
+                break;
+            case TileLayer.Format.BASE64_ZLIB:
+                encoding = "base64";
+                compression = "zlib";
+                break;
+            case TileLayer.Format.CSV:
+                encoding = "csv";
+                break;
+        }
+        var dataEl = $("<data>", xml);
+        if (compression) dataEl.attr("compression", compression);
+        if (encoding) dataEl.attr("encoding", encoding);
+
+
+
+        tileLayerEl.append(dataEl);
+
+        return tileLayerEl;
     };
 
     TileLayer.fromElement = function (element, map, options) {

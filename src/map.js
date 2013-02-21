@@ -159,7 +159,11 @@ define([
             mapEl.append(tileSet.toXML(xml, options));
         });
 
-        // TODO Export TileLayers.
+        // Export tile layers.
+        $.each(this.layers, function (li, layer) {
+            mapEl.append(layer.toXML(xml, options));
+        });
+
         // TODO Export DoodadGroups.
 
         return mapEl;
