@@ -1,4 +1,4 @@
-define(["jquery", "./util/rectangle", "./util/util"], function ($, Rectangle, U) {
+define(["jquery", "./util/rectangle", "./util/util"], function ($, Rectangle, Util) {
     var Tile = function () {
         this.id = null;
         this.tileSet = null;
@@ -13,7 +13,7 @@ define(["jquery", "./util/rectangle", "./util/util"], function ($, Rectangle, U)
 
     Tile.prototype.toXML = function (xml, options) {
         var tileEl = $("<tile>", xml).attr("id", this.id);
-        if (U.size(this.properties)) {
+        if (Util.size(this.properties)) {
             var propertiesEl = $("<properties>", xml);
             $.each(this.properties, function (k, v) {
                 var propertyEl = $("<property>", xml).attr({ name: k, value: v });

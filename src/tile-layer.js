@@ -13,7 +13,7 @@ define([
     Layer,
     Base64,
     Rectangle,
-    U
+    Util
 ) {
     var TileLayer = function(name, bounds) {
         Layer.call(this, name, bounds);
@@ -133,7 +133,7 @@ define([
         });
 
         // Properties
-        if (U.size(this.properties)) {
+        if (Util.size(this.properties)) {
             var propertiesEl = $("<properties>", xml);
             $.each(this.properties, function (k, v) {
                 var propertyEl = $("<property>", xml).attr({ name: k, value: v });

@@ -9,7 +9,7 @@ define([
     TileLayer,
     TileSet,
     Rectangle,
-    U
+    Util
 ) {
     var Map = function (orientation, width, height, tileWidth, tileHeight) {
         this.version = null;
@@ -143,7 +143,7 @@ define([
             tilewidth: this.tileInfo.w,
             tileheight: this.tileInfo.h
         });
-        if (U.size(this.properties)) {
+        if (Util.size(this.properties)) {
             var propertiesEl = $("<properties>", xml);
             $.each(this.properties, function (k, v) {
                 var propertyEl = $("<property>", xml).attr({ name: k, value: v });
