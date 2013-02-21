@@ -1,13 +1,11 @@
 define([
     "jquery",
-    "underscore",
     "./tile-layer",
     "./tile-set",
     "./util/rectangle",
     "./util/util"
 ], function (
     $,
-    _,
     TileLayer,
     TileSet,
     Rectangle,

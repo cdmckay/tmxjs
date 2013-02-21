@@ -52,7 +52,10 @@ define(["jquery", "./tile", "./util/util"], function ($, Tile, U) {
     };
 
     TileSet.prototype.toXML = function (xml, options) {
-        var tileSetEl = $("<tileset>", xml).attr("name", this.name);
+        var tileSetEl = $("<tileset>", xml).attr({
+            firstgid: this.firstGlobalId,
+            name: this.name
+        });
         if (tileSetEl.source) {
             tileSetEl.attr("source", tileSetEl.source);
         } else {

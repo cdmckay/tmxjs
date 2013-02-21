@@ -140,7 +140,6 @@ define([
             tileLayerEl.append(propertiesEl);
         }
 
-        // Data
         var compression, encoding;
         switch (this.format) {
             case TileLayer.Format.XML:
@@ -159,13 +158,45 @@ define([
             case TileLayer.Format.CSV:
                 encoding = "csv";
                 break;
+            default:
+                throw new Error("Unsupported format: " + this.format);
         }
+
+        // TODO Deal with flipped bits.
         var dataEl = $("<data>", xml);
         if (compression) dataEl.attr("compression", compression);
         if (encoding) dataEl.attr("encoding", encoding);
-
-
-
+        if (this.format === TileLayer.Format.XML) {
+            $.each(this.cells, function (ci, cell) {
+                var cellEl = $("<tile>", xml).attr("gid", cell.tile.getGlobalId());
+                dataEl.append(cellEl);
+            });
+        } else if (this.format === TileLayer.Format.CSV) {
+            var globalIds = $.map(this.cells, function (cell) {
+                return cell.tile.getGlobalId();
+            });
+            dataEl.text(globalIds.join(","));
+        } else {
+            var bytes = [];
+            $.each(this.cells, function (ci, cell) {
+                var globalId = cell.tile.getGlobalId();
+                bytes.push((globalId >> 0) & 255);
+                bytes.push((globalId >> 8) & 255);
+                bytes.push((globalId >> 16) & 255);
+                bytes.push((globalId >> 24) & 255);
+            });
+            var content;
+            switch (this.format) {
+                case TileLayer.Format.BASE64:
+                    content = Base64.encode(bytes);
+                    break;
+                case TileLayer.Format.BASE64_GZIP:
+                case TileLayer.Format.BASE64_ZLIB:
+                    content = Base64.encode(options.compression[compression].compress(bytes));
+                    break;
+            }
+            dataEl.text(content);
+        }
         tileLayerEl.append(dataEl);
 
         return tileLayerEl;

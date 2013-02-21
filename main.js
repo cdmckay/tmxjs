@@ -1,7 +1,6 @@
 require.config({
     paths: {
         jquery: "lib/jquery",
-        underscore: "lib/underscore",
         tmxjs: "src",
         gzip: "lib/gzip.min",
         gunzip: "lib/gunzip.min",
@@ -9,7 +8,6 @@ require.config({
         inflate: "lib/inflate.min"
     },
     shim: {
-        underscore: { exports: "_" },
         gzip: { exports: "Zlib.Gzip" },
         gunzip: { exports: "Zlib.Gunzip" },
         deflate: { exports: "Zlib.Deflate" },
@@ -56,8 +54,7 @@ require([
                 $(document).on("keypress", function (event) {
                     if (String.fromCharCode(event.which) === "x") {
                         var doc = map.toXML(options);
-                        //var xmlString = xml.xml || new XMLSerializer().serializeToString(xml);
-                        console.log(doc.context)
+                        console.log(doc.context);
                     }
                 });
 
@@ -77,7 +74,7 @@ require([
 
                         var i = tn % layer.bounds.w;
                         var j = Math.floor(tn / layer.bounds.w);
-                        var tileSet = map.findTileSet(cell.tile.getGlobalId());
+                        var tileSet = cell.tile.tileSet;
 
                         var flippedClass = U.format("flipped-{0}-{1}-{2}",
                             +cell.flipped.horizontally,
