@@ -21,8 +21,8 @@ define(["underscore", "tmxjs/util/base64"], function(_, Base64) {
             var bytes = _.map(_.toArray(message), function(ch) { return ch.charCodeAt(0); });
             var encodedMessage = Base64.encode(bytes);
             var decodedBytes = Base64.decode(encodedMessage);
-            var decodedMessage = _.map(decodedBytes, function (b) { return String.fromCharCode(b); }).join();
-            test.equals(decodedMessage, message, "Should equal the original message");
+            var decodedMessage = _.map(decodedBytes, function (b) { return String.fromCharCode(b); }).join("");
+            test.equals(decodedMessage, message);
             test.done();
         }
     };

@@ -1,5 +1,6 @@
 define([
     "jquery",
+    "zlib",
     "./cell",
     "./layer",
     "./util/base64",
@@ -7,6 +8,7 @@ define([
     "./util/util"
 ], function (
     $,
+    Zlib,
     Cell,
     Layer,
     Base64,
@@ -191,8 +193,10 @@ define([
                     content = Base64.encode(bytes);
                     break;
                 case TileLayer.Format.BASE64_GZIP:
+                    content = Base64.encode(new Zlib.Gzip(bytes).compress());
+                    break;
                 case TileLayer.Format.BASE64_ZLIB:
-                    content = Base64.encode(options.compression[compression].compress(bytes));
+                    content = Base64.encode(new Zlib.Deflate(bytes).compress());
                     break;
             }
             dataEl.text(content);
@@ -218,47 +222,55 @@ define([
             tileLayer.properties[$(this).attr("name")] = $(this).attr("value");
         });
 
-        layerElement.find("data:first").each(function () {
-            var handleBase64 = function (options) {
-                var decompress = function (data) { return data };
-                var compression = $(this).attr("compression");
-                if (compression) {
-                    if (!options.compression[compression] || !options.compression[compression].decompress) {
-                        throw new Error("Could not find decompressor for compression: " + compression);
-                    }
-                    tileLayer.format += compression;
-                    decompress = options.compression[compression].decompress;
+        var decodeBase64 = function (dataEl) {
+            var base64String = $.trim(dataEl.text());
+            var bytes = Base64.decode(base64String);
+            var compression = dataEl.attr("compression");
+            if (compression) {
+                tileLayer.format += compression;
+                switch (compression) {
+                    case "gzip":
+                        bytes = new Zlib.Gunzip(bytes).decompress();
+                        break;
+                    case "zlib":
+                        bytes = new Zlib.Inflate(bytes).decompress();
+                        break;
+                    default:
+                        throw new Error("Unsupported format: " + tileLayer.format);
                 }
-                var flippedGlobalIds = [];
-                var bytes = decompress(Base64.decode($.trim($(this).text())));
-                for (var n = 0; n < bytes.length; n += 4) {
-                    var flippedGlobalId = 0;
-                    flippedGlobalId += bytes[n + 0] << 0;
-                    flippedGlobalId += bytes[n + 1] << 8;
-                    flippedGlobalId += bytes[n + 2] << 16;
-                    flippedGlobalId += bytes[n + 3] << 24;
-                    flippedGlobalIds.push(flippedGlobalId);
-                }
-                return flippedGlobalIds;
-            };
-            var handleCSV = function (options) {
-                var flippedGlobalIds = [];
-                $.each($(this).text().split(","), function(n) {
-                    flippedGlobalIds.push(parseInt(this));
-                });
-                return flippedGlobalIds;
-            };
-
+            }
             var flippedGlobalIds = [];
-            var encoding = $(this).attr("encoding");
+            for (var n = 0; n < bytes.length; n += 4) {
+                var flippedGlobalId = 0;
+                flippedGlobalId += bytes[n + 0] << 0;
+                flippedGlobalId += bytes[n + 1] << 8;
+                flippedGlobalId += bytes[n + 2] << 16;
+                flippedGlobalId += bytes[n + 3] << 24;
+                flippedGlobalIds.push(flippedGlobalId);
+            }
+            return flippedGlobalIds;
+        };
+
+        var decodeCSV = function (dataEl) {
+            var flippedGlobalIds = [];
+            $.each(dataEl.text().split(","), function(n) {
+                flippedGlobalIds.push(parseInt(this));
+            });
+            return flippedGlobalIds;
+        };
+
+        layerElement.find("data:first").each(function () {
+            var dataEl = $(this);
+            var flippedGlobalIds = [];
+            var encoding = dataEl.attr("encoding");
             if (encoding) {
                 tileLayer.format = encoding;
                 switch (encoding) {
                     case "base64":
-                        flippedGlobalIds = handleBase64.call(this, options);
+                        flippedGlobalIds = decodeBase64(dataEl);
                         break;
                     case "csv":
-                        flippedGlobalIds = handleCSV.call(this, options);
+                        flippedGlobalIds = decodeCSV(dataEl);
                         break;
                     default:
                         throw new Error("Unsupported encoding: " + encoding);

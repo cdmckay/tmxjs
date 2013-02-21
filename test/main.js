@@ -1,12 +1,13 @@
 require.config({
     paths: {
         jquery: "../lib/jquery",
-        underscore: "../lib/underscore",
+        underscore: "./lib/underscore",
+        nodeunit: "./lib/nodeunit",
         tmxjs: "../src"
     },
     shim: {
-        nodeunit: { exports: "nodeunit" },
-        underscore: { exports: "_" }
+        underscore: { exports: "_" },
+        nodeunit: { exports: "nodeunit" }
     }
 });
 

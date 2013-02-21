@@ -1,50 +1,26 @@
 require.config({
     paths: {
         jquery: "lib/jquery",
-        tmxjs: "src",
-        gzip: "lib/gzip.min",
-        gunzip: "lib/gunzip.min",
-        deflate: "lib/deflate.min",
-        inflate: "lib/inflate.min"
+        zlib: "lib/zlib.min",
+        tmxjs: "src"
     },
     shim: {
-        gzip: { exports: "Zlib.Gzip" },
-        gunzip: { exports: "Zlib.Gunzip" },
-        deflate: { exports: "Zlib.Deflate" },
-        inflate: { exports: "Zlib.Inflate" }
+        zlib: { exports: "Zlib" }
     }
 });
 
 require([
-    "gzip",
-    "gunzip",
-    "deflate",
-    "inflate",
     "jquery",
     "tmxjs/map",
     "tmxjs/util/util"
 ], function (
-    Gzip,
-    Gunzip,
-    Deflate,
-    Inflate,
     $,
     Map,
     U
 ) {
     var url = "examples/desert_export.tmx";
     var options = {
-        dir: url.split("/").slice(0, -1) || ".",
-        compression: {
-            gzip: {
-                compress: function (bytes) { return new Gzip(bytes).compress(); },
-                decompress: function (bytes) { return new Gunzip(bytes).decompress(); }
-            },
-            zlib: {
-                compress: function (bytes) { return new Deflate(bytes).compress(); },
-                decompress: function (bytes) { return new Inflate(bytes).decompress(); }
-            }
-        }
+        dir: url.split("/").slice(0, -1) || "."
     };
 
     $.get(url, {}, null, "xml")
