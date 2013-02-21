@@ -1,14 +1,27 @@
-define(["jquery", "./util/rectangle"], function ($, Rectangle) {
+define(["jquery", "./util/rectangle", "./util/util"], function ($, Rectangle, U) {
     var Tile = function () {
         this.id = null;
         this.tileSet = null;
         this.bounds = new Rectangle();
         this.imageInfo = { url: null, w: 0, h: 0 };
-        this.propertes = {};
+        this.properties = {};
     };
 
     Tile.prototype.getGlobalId = function () {
         return this.tileSet.firstGlobalId + this.id;
+    };
+
+    Tile.prototype.toXML = function (xml, options) {
+        var tileEl = $("<tile>", xml).attr("id", this.id);
+        if (U.size(this.properties)) {
+            var propertiesEl = $("<properties>", xml);
+            $.each(this.properties, function (k, v) {
+                var propertyEl = $("<property>", xml).attr({ name: k, value: v });
+                propertiesEl.append(propertyEl);
+            });
+            tileEl.append(propertiesEl);
+        }
+        return tileEl;
     };
 
     Tile.fromElement = function (element, options) {

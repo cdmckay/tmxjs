@@ -55,9 +55,9 @@ require([
                 // Export to XML when "x" key pressed.
                 $(document).on("keypress", function (event) {
                     if (String.fromCharCode(event.which) === "x") {
-                        var xml = map.toXML(options);
-                        var xmlString = xml.xml || new XMLSerializer().serializeToString(xml);
-                        console.log(xml)
+                        var doc = map.toXML(options);
+                        //var xmlString = xml.xml || new XMLSerializer().serializeToString(xml);
+                        console.log(doc.context)
                     }
                 });
 
@@ -96,7 +96,7 @@ require([
                             format = [
                                 "background-image: url({0});"
                             ].join("/");
-                            ruleSet = U.format(format, cell.tile.imageInfo.url);
+                            ruleSet = U.format(format, options.dir + "/" + cell.tile.imageInfo.source);
                             ruleSets["tile-set-" + tileSet.firstGlobalId] = ruleSet;
                         }
                         if (!ruleSets["tile-" + cell.tile.getGlobalId()]) {

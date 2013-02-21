@@ -137,8 +137,8 @@ define([
 
     Map.prototype.toXML = function (options) {
         var xml = $.parseXML('<?xml version="1.0" encoding="UTF-8"?><map/>')
-        var mapEl = $(xml).find("map");
-        mapEl.attr({
+        var mapEl = $(xml).find("map").attr({
+            version: this.version,
             orientation: this.orientation,
             width: this.bounds.w,
             height: this.bounds.h,
@@ -146,16 +146,23 @@ define([
             tileheight: this.tileInfo.h
         });
         if (U.size(this.properties)) {
-            var propertiesEl = $("<properties>");
+            var propertiesEl = $("<properties>", xml);
             $.each(this.properties, function (k, v) {
-                $("<property>", { name: k, value: v }).appendTo(propertiesEl);
+                var propertyEl = $("<property>", xml).attr({ name: k, value: v });
+                propertiesEl.append(propertyEl);
             });
             mapEl.append(propertiesEl);
         }
-        // TODO Export TileSets.
+
+        // Export tile sets.
+        $.each(this.tileSets, function (ti, tileSet) {
+            mapEl.append(tileSet.toXML(xml, options));
+        });
+
         // TODO Export TileLayers.
         // TODO Export DoodadGroups.
-        return xml;
+
+        return mapEl;
     };
 
     Map.fromXML = function (xml, options) {
@@ -172,6 +179,7 @@ define([
             parseInt(mapEl.attr("tilewidth")),
             parseInt(mapEl.attr("tileheight"))
         );
+        map.version = mapEl.attr("version") || null;
 
         // Load properties.
         mapEl.find("properties:first property").each(function () {
