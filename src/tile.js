@@ -3,7 +3,7 @@ define(["jquery", "./util/rectangle", "./util/util"], function ($, Rectangle, Ut
         this.id = null;
         this.tileSet = null;
         this.bounds = new Rectangle();
-        this.imageInfo = { url: null, w: 0, h: 0 };
+        this.imageInfo = { source: null, w: 0, h: 0 };
         this.properties = {};
     };
 

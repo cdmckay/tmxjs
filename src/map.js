@@ -168,11 +168,6 @@ define([
     };
 
     Map.fromXML = function (xml, options) {
-        options = $.extend(true, {
-            dir: ".",
-            compression: {}
-        }, options);
-
         var mapEl = $(xml).find("map");
         var map = new Map(
             mapEl.attr("orientation"),
@@ -181,6 +176,7 @@ define([
             parseInt(mapEl.attr("tilewidth")),
             parseInt(mapEl.attr("tileheight"))
         );
+        //
         map.version = mapEl.attr("version") || null;
 
         // Load properties.

@@ -18,7 +18,7 @@ require([
     Map,
     U
 ) {
-    var url = "examples/desert_export.tmx";
+    var url = "examples/desert.tmx";
     var options = {
         dir: url.split("/").slice(0, -1) || "."
     };

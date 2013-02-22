@@ -215,8 +215,9 @@ define([
             parseInt(layerElement.attr("width")),
             parseInt(layerElement.attr("height"))
         );
-        tileLayer.visible = !!layerElement.attr("visible");
-        tileLayer.opacity = parseFloat(layerElement.attr("opacity")) || 0.0;
+        tileLayer.visible = layerElement.attr("visible") !== "0";
+        tileLayer.opacity = parseFloat(layerElement.attr("opacity"));
+        tileLayer.opacity = isNaN(tileLayer.opacity) ? 1.0 : Math.min(Math.max(0.0, tileLayer.opacity), 1.0);
 
         layerElement.find("properties:first property").each(function () {
             tileLayer.properties[$(this).attr("name")] = $(this).attr("value");

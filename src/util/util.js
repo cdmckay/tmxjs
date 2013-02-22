@@ -30,5 +30,10 @@ define(function () {
         return size;
     };
 
+    Util.urlFor = function (source, dir) {
+        var isAbsolutePath = Util.startsWith(source, "http") || Util.startsWith(source, "/");
+        return isAbsolutePath ? source : (dir || ".") + "/" + source;
+    }
+
     return Util;
 });

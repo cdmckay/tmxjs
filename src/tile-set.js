@@ -95,6 +95,8 @@ define(["jquery", "./tile", "./util/util"], function ($, Tile, Util) {
     };
 
     TileSet.fromElement = function (element, options) {
+        options = $.extend(true, { dir: "." }, options);
+
         var tileSetElement = $(element);
         var firstGlobalId = parseInt(tileSetElement.attr("firstgid"));
         var tileSet = new TileSet(firstGlobalId);
@@ -137,7 +139,7 @@ define(["jquery", "./tile", "./util/util"], function ($, Tile, Util) {
         tileSet.source = tileSetElement.attr("source");
         var promise = $.Deferred();
         if (tileSet.source) {
-            $.get((Util.startsWith(tileSet.source, "http") ? "" : options.dir + "/") + tileSet.source, {}, null, "xml")
+            $.get(Util.urlFor(tileSet.source, options.dir), {}, null, "xml")
                 .done(function (data) {
                     var external = $(data).find("tileset");
                     extract(external);
