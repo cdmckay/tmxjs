@@ -1,11 +1,13 @@
 define([
     "jquery",
+    "./doodad-group",
     "./tile-layer",
     "./tile-set",
     "./util/rectangle",
     "./util/util"
 ], function (
     $,
+    DoodadGroup,
     TileLayer,
     TileSet,
     Rectangle,
@@ -64,9 +66,9 @@ define([
 
     Map.prototype.getTileLayers = function () {
         var tileLayers = [];
-        $.each(this.layers, function () {
-            if (this instanceof TileLayer) {
-                tileLayers.push(this);
+        $.each(this.layers, function (li, layer) {
+            if (layer instanceof TileLayer) {
+                tileLayers.push(layer);
             }
         });
         return tileLayers;
@@ -74,9 +76,9 @@ define([
 
     Map.prototype.getDoodadGroups = function () {
         var doodadGroups = [];
-        $.each(this.layers, function () {
-            if (this instanceof DoodadGroup) {
-                doodadGroups.push(this);
+        $.each(this.layers, function (li, layer) {
+            if (layer instanceof DoodadGroup) {
+                doodadGroups.push(layer);
             }
         });
         return doodadGroups;
@@ -98,8 +100,8 @@ define([
 
         var map = this;
         var tileSet = this.tileSets[index];
-        $.each(tileSet.tiles, function (tn, tile) {
-            $.each(map.layers, function (ln, layer) {
+        $.each(tileSet.tiles, function (ti, tile) {
+            $.each(map.layers, function (li, layer) {
                 layer.removeTile(tile);
             });
         });
@@ -108,9 +110,9 @@ define([
 
     Map.prototype.findTileSet = function (globalId) {
         var target = null;
-        $.each(this.tileSets, function () {
+        $.each(this.tileSets, function (ti, tileSet) {
             if (this.firstGlobalId <= globalId) {
-                target = this;
+                target = tileSet;
             }
         });
         return target;
