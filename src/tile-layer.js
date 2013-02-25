@@ -170,24 +170,22 @@ define([
         if (encoding) dataEl.attr("encoding", encoding);
         if (this.format === TileLayer.Format.XML) {
             $.each(this.cells, function (ci, cell) {
-                var cellEl = $("<tile>", xml).attr("gid", cell.tile.getGlobalId());
+                var cellEl = $("<tile>", xml).attr("gid", cell ? cell.tile.getGlobalId() : 0);
                 dataEl.append(cellEl);
             });
         } else if (this.format === TileLayer.Format.CSV) {
             var globalIds = $.map(this.cells, function (cell) {
-                return cell.tile.getGlobalId();
+                return cell ? cell.tile.getGlobalId() : 0;
             });
             dataEl.text(globalIds.join(","));
         } else {
             var bytes = [];
             $.each(this.cells, function (ci, cell) {
-                if (cell) {
-                    var globalId = cell.tile.getGlobalId();
-                    bytes.push((globalId >> 0) & 255);
-                    bytes.push((globalId >> 8) & 255);
-                    bytes.push((globalId >> 16) & 255);
-                    bytes.push((globalId >> 24) & 255);
-                }
+                var globalId = cell ? cell.tile.getGlobalId() : 0;
+                bytes.push((globalId >> 0) & 255);
+                bytes.push((globalId >> 8) & 255);
+                bytes.push((globalId >> 16) & 255);
+                bytes.push((globalId >> 24) & 255);
             });
             var content;
             switch (this.format) {
