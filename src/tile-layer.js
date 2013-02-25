@@ -181,11 +181,13 @@ define([
         } else {
             var bytes = [];
             $.each(this.cells, function (ci, cell) {
-                var globalId = cell.tile.getGlobalId();
-                bytes.push((globalId >> 0) & 255);
-                bytes.push((globalId >> 8) & 255);
-                bytes.push((globalId >> 16) & 255);
-                bytes.push((globalId >> 24) & 255);
+                if (cell) {
+                    var globalId = cell.tile.getGlobalId();
+                    bytes.push((globalId >> 0) & 255);
+                    bytes.push((globalId >> 8) & 255);
+                    bytes.push((globalId >> 16) & 255);
+                    bytes.push((globalId >> 24) & 255);
+                }
             });
             var content;
             switch (this.format) {

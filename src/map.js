@@ -102,7 +102,7 @@ define([
         var tileSet = this.tileSets[index];
         $.each(tileSet.tiles, function (ti, tile) {
             $.each(map.layers, function (li, layer) {
-                layer.removeTile(tile);
+                if (layer instanceof TileLayer) layer.removeTile(tile);
             });
         });
         this.tileSets.splice(index, 1);
