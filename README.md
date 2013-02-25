@@ -132,7 +132,7 @@ require([
 
 ## TMXjs Implementation Status
 
-TMXjs implementation of the [TMX file format](https://github.com/bjorn/tiled/wiki/TMX-Map-Format) is incomplete.
+The TMXjs implementation of the [TMX file format](https://github.com/bjorn/tiled/wiki/TMX-Map-Format) is incomplete.
 
 The biggest omissions are lack of support for `<objectgroup>` and `<imagelayer>` elements.
 

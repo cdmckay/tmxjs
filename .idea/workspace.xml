@@ -107,7 +107,7 @@
       <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="137" column="0" selection-start="3703" selection-end="3703" vertical-scroll-proportion="0.9118684">
+            <state line="134" column="4" selection-start="3502" selection-end="3502" vertical-scroll-proportion="0.8589894">
               <folding />
             </state>
           </provider>
@@ -533,7 +533,11 @@
       <created>1361834892989</created>
       <updated>1361834892989</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="Completed README.">
+      <created>1361835246089</created>
+      <updated>1361835246089</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -615,7 +619,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Formatting fix for the README." />
+    <option name="LAST_COMMIT_MESSAGE" value="Completed README." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -628,7 +632,6 @@
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="Added support for base64 encoding." />
     <MESSAGE value="Added support for CSV encoding." />
     <MESSAGE value="Added base64 support to core.&#10;Added support for zlib compression." />
     <MESSAGE value="Added GZIP compression support." />
@@ -653,6 +656,7 @@
     <MESSAGE value="Fixed major bug where TileLayers were incorrectly serialized if they had any blank cells." />
     <MESSAGE value="Added more information about using TMXjs." />
     <MESSAGE value="Formatting fix for the README." />
+    <MESSAGE value="Completed README." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -767,7 +771,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="137" column="0" selection-start="3703" selection-end="3703" vertical-scroll-proportion="0.9118684">
+        <state line="134" column="4" selection-start="3502" selection-end="3502" vertical-scroll-proportion="0.8589894">
           <folding />
         </state>
       </provider>
