@@ -107,7 +107,7 @@
       <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="134" column="16" selection-start="3511" selection-end="3511" vertical-scroll-proportion="0.96474737">
+            <state line="23" column="7" selection-start="711" selection-end="711" vertical-scroll-proportion="0.24206816">
               <folding />
             </state>
           </provider>
@@ -525,7 +525,11 @@
       <created>1361833940407</created>
       <updated>1361833940407</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="Added more information about using TMXjs.">
+      <created>1361834856168</created>
+      <updated>1361834856168</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -759,7 +763,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="134" column="16" selection-start="3511" selection-end="3511" vertical-scroll-proportion="0.96474737">
+        <state line="23" column="7" selection-start="711" selection-end="711" vertical-scroll-proportion="0.24206816">
           <folding />
         </state>
       </provider>

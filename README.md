@@ -22,7 +22,6 @@ js/
     zlib.min.js
 index.html
 main.js
-
 ```
 
 TMXjs depends on jQuery, RequireJS, Zlib, so they all need to be shimmed in your RequireJS config for TMXjs to work.
