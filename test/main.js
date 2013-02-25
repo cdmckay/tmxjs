@@ -19,11 +19,13 @@ require.config({
         jquery: "../lib/jquery",
         underscore: "./lib/underscore",
         nodeunit: "./lib/nodeunit",
+        zlib: "../lib/zlib.min",
         tmxjs: "../src"
     },
     shim: {
         underscore: { exports: "_" },
-        nodeunit: { exports: "nodeunit" }
+        nodeunit: { exports: "nodeunit" },
+        zlib: { exports: "Zlib" }
     }
 });
 
