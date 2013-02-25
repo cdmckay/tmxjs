@@ -126,9 +126,14 @@ require([
         });
     });
 });
+```
 
 ...and that's it!
 
 ## TMXjs Implementation Status
 
-TODO Finish this
+TMXjs implementation of the [TMX file format](https://github.com/bjorn/tiled/wiki/TMX-Map-Format) is incomplete.
+
+The biggest omissions are lack of support for `<objectgroup>` and `<imagelayer>` elements.
+
+
