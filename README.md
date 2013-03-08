@@ -4,7 +4,10 @@ TMXjs
 TMXjs is a JavaScript, [jQuery](http://jquery.com/) and [RequireJS](http://requirejs.org)-based library for reading,
 manipulating, and writing [TMX](https://github.com/bjorn/tiled/wiki/TMX-Map-Format) files.
 
-For a demo, please visit [the Tilecraft (a TMXjs-based editor) demo site at cdmckay.org](http://cdmckay.org/tilecraft/).
+To see an example of TMXjs code being used in a practical application, see the
+[Tilecraft project](https://github.com/cdmckay/tilecraft/).
+
+To see TMXjs in action, please visit [the Tilecraft demo site at cdmckay.org](http://cdmckay.org/tilecraft/).
 
 ## Getting Started
 
