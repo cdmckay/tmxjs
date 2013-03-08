@@ -57,7 +57,7 @@ define([
 
     Map.prototype.addLayer = function (layer) {
         layer.map = this;
-        this.layers.push(layer);
+        return this.layers.push(layer);
     };
 
     Map.prototype.setLayerAt = function (index, layer) {
