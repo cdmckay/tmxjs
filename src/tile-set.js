@@ -123,8 +123,8 @@ define(["jquery", "./tile", "./util/util"], function ($, Tile, Util) {
             tileSet.tileInfo = {
                 w: parseInt(e.attr("tilewidth")) || 1,
                 h: parseInt(e.attr("tileheight")) || 1,
-                spacing: parseInt(e.attr("spacing")),
-                margin: parseInt(e.attr("margin"))
+                spacing: parseInt(e.attr("spacing")) || 0,
+                margin: parseInt(e.attr("margin")) || 0
             };
 
             var image = e.children("image:first");
