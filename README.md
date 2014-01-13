@@ -13,7 +13,7 @@ To see TMXjs in action, please visit [the Tilecraft demo site at cdmckay.org](ht
 
 TMXjs isn't available as a single JavaScript file yet, so you'll need to download the entire `src` folder and place
 it in a folder, typically named `tmxjs`. Here's an example project layout that is used by
-[TMXjs Editor](https://github.com/cdmckay/tmxjs-editor/):
+[Tilecraft](https://github.com/cdmckay/tilecraft/):
 
 ```
 js/
